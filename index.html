@@ -140,10 +140,10 @@
             padding: 0 2rem 2rem 2rem;
             display: flex;
             gap: 25px;
-            align-items: stretch; /* تضمین هم‌ترازی دقیق لبه بالا و پایین دو ستون */
+            align-items: stretch;
         }
 
-        /* ستون سمت چپ: برای بزرگ‌تر شدن باکس تصاویر، سهم این ستون را به ۷۵٪ افزایش دادیم */
+        /* ستون سمت چپ: کانتینر مدیا، بوم سه بعدی و باکس متریک جدید */
         .left-visual-column {
             flex: 0 0 75%;
             display: flex;
@@ -151,7 +151,7 @@
             gap: 20px;
         }
 
-        /* باکس گالری ۵ عکسی - حالا فضای بسیار بیشتری برای توسعه دارد */
+        /* باکس گالری ۵ عکسی */
         .euclidean-foundations-box {
             width: 100%;
             background: #f8fafc;
@@ -226,21 +226,56 @@
         }
         #canvas-inner { width: 100%; height: 100%; }
 
-        /* ستون سمت راست: سهم سایدبار متنی برای حفظ تعادل، ۲۵٪ تعیین شد */
+        /* باکس اطلاعاتی جدید: Part III (متریک‌ها و کیهان‌شناسی) */
+        .metrics-cosmology-box {
+            width: 100%;
+            background: #f8fafc;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 14px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            direction: ltr;
+            text-align: left;
+        }
+        .metrics-cosmology-box h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #ef4444;
+            padding-left: 12px;
+        }
+        .metrics-list {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+        }
+        .metrics-list li {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #334155;
+        }
+        .metrics-list strong {
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        /* ستون سمت راست: سایدبار متنی نیوتنی */
         .sidebar-text-zone {
             flex: 0 0 25%; 
             direction: ltr;
             text-align: left;
         }
 
-        /* باکس متنی نیوتنی - تراز دقیق ابتدا و انتها موازات ستون چپ */
+        /* باکس نیوتنی - همواره کشیده و فیت شده تا لبه پایینی کامپوننت جدید پایینی */
         .infobox {
             background: #f8fafc;
             border: 1px solid rgba(0, 0, 0, 0.1);
             padding: 1.8rem;
             border-radius: 14px;
-            height: 100%; /* تضمین پایان دقیقاً موازات انتهای بخش سه‌بعدی */
-            overflow-y: auto; /* اگر متن طولانی شد، داخل خودش اسکرول می‌خورد و بیرون نمی‌زند */
+            height: 100%; 
+            overflow-y: auto; 
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
         .infobox h2 {
@@ -284,12 +319,13 @@
             font-style: italic;
             font-size: 1.15rem;
             background: #ffffff;
-            padding: 0.5rem;
+            padding: 0.6rem;
             margin: 0.5rem 0;
             border-radius: 6px;
             border-left: 2px solid #cbd5e1;
             text-align: center;
             box-shadow: inset 0 1px 3px rgba(0,0,0,0.02);
+            direction: ltr;
         }
         .math-inline {
             font-family: "Times New Roman", Times, serif;
@@ -410,6 +446,41 @@
                         <div id="labels-container" style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:8;"></div>
                     </div>
                 </div>
+
+                <section class="metrics-cosmology-box">
+                    <h2>Part III: Metrics and Cosmological Models</h2>
+                    <ul class="metrics-list">
+                        <li>
+                            <strong>The Metric Tensor:</strong> A metric is a mathematical rule used to calculate the interval or distance between two neighboring points.
+                        </li>
+                        <li>
+                            <strong>2D Euclidean:</strong>
+                            <div class="math-display">$$dl^2 = dr^2 + r^2 d\theta^2$$</div>
+                        </li>
+                        <li>
+                            <strong>2D Non-Euclidean:</strong>
+                            <div class="math-display">$$dl^2 = a^2 \left( \frac{dr'^2}{1 - r'^2} + r'^2 d\theta^2 \right)$$</div>
+                        </li>
+                        <li>
+                            <strong>Inherent Differences:</strong> These metrics represent different internal curvatures ($k$) and cannot be mathematically transformed into one another.
+                        </li>
+                        <li>
+                            <strong>The 4D Spacetime Interval:</strong> In General Relativity, the metric is extended to a 4D non-Euclidean spacetime $(ds)^2$ with a Lorentzian signature, typically featuring one positive time component and three negative spatial components.
+                        </li>
+                        <li>
+                            <strong>Curvature and Universe Models:</strong> The curvature parameter $k$ dictates the global geometry of the universe:
+                            <ul class="sub-list">
+                                <li>• $k = +1$: Spherical geometry, corresponding to a <strong>Closed</strong> universe.</li>
+                                <li>• $k = 0$: Euclidean geometry, corresponding to a <strong>Flat</strong> universe.</li>
+                                <li>• $k = -1$: Hyperbolic geometry, corresponding to an <strong>Open</strong> universe.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <strong>The Robertson-Walker (RW) Metric:</strong> Assuming the universe is homogeneous and isotropic, its geometry is described by the RW metric using the radial coordinate $\varpi$ (varpi) and a time-dependent scale factor $R(t)$:
+                            <div class="math-display">$$(ds)^2 = (cdt)^2 - R^2(t) \left[ \frac{d\varpi^2}{1 - k\varpi^2} + \varpi^2 d\theta^2 + \varpi^2 \sin^2\theta d\phi^2 \right]$$</div>
+                        </li>
+                    </ul>
+                </section>
 
             </div>
 
