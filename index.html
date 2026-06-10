@@ -132,7 +132,7 @@
             transform: scale(1.03);
         }
 
-        /* کانتینر اصلی بخش پایینی - پیاده‌سازی دو ستونه برای جلوگیری از اورلپ */
+        /* کانتینر اصلی بخش پایینی */
         .bottom-layout-container {
             width: 100%;
             max-width: 1200px;
@@ -140,31 +140,31 @@
             padding: 0 2rem 2rem 2rem;
             display: flex;
             gap: 25px;
-            align-items: stretch; /* کشیده شدن ستون‌ها تا ارتفاع همسان */
+            align-items: stretch;
         }
 
-        /* ستون سمت چپ: تمام باکس‌های مدیا و شبیه‌ساز سه بعدی */
+        /* ستون سمت چپ: کانتینر مدیا و شبیه‌ساز سه بعدی */
         .left-visual-column {
-            flex: 0 0 65%; /* اختصاص ۶۵ درصد از عرض کل */
+            flex: 0 0 65%;
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
 
-        /* باکس گالری ۵ عکسی */
+        /* باکس گالری ۵ عکسی - ابعاد داخلی و پدینگ برای ۲ برابر بزرگ‌تر دیده شدن بهینه‌سازی شد */
         .euclidean-foundations-box {
             width: 100%;
             background: #f8fafc;
             border: 1px solid rgba(0,0,0,0.1);
             border-radius: 14px;
-            padding: 1.8rem;
+            padding: 2.5rem 2rem; /* افزایش پدینگ عمودی برای کشیدگی بیشتر */
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
         .euclidean-foundations-box h3 {
-            font-size: 1.2rem;
+            font-size: 1.4rem; /* هماهنگی تایتل با ابعاد بزرگ‌شده */
             font-weight: 700;
             color: #1e293b;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.8rem;
             border-right: 4px solid #ef4444;
             padding-right: 12px;
             text-align: right;
@@ -172,19 +172,20 @@
         .foundations-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 12px;
+            gap: 16px; /* افزایش فاصله بین تصاویر بزرگ‌تر */
         }
         .foundations-grid img {
             width: 100%;
             aspect-ratio: 1 / 1;
             object-fit: contain;
             background-color: #ffffff;
-            border-radius: 8px;
+            border-radius: 10px;
             border: 1px solid rgba(0,0,0,0.08);
             transition: transform 0.3s ease;
+            padding: 4px; /* فضای تنفس داخلی تصویر */
         }
         .foundations-grid img:hover {
-            transform: scale(1.04);
+            transform: scale(1.05);
         }
 
         /* باکس تک عکسی بدون عنوان (pic8) */
@@ -226,21 +227,20 @@
         }
         #canvas-inner { width: 100%; height: 100%; }
 
-        /* ستون سمت راست: سایدبار متنی با متد استیکی و کشیدگی کامل از بالا تا پایین موازات ستون چپ */
+        /* ستون سمت راست: بدون تغییر در ابعاد یا نسبت ساختاری */
         .sidebar-text-zone {
-            flex: 0 0 35%; /* اختصاص ۳۵ درصد از عرض کل */
+            flex: 0 0 35%; 
             direction: ltr;
             text-align: left;
         }
 
-        /* استایل اختصاصی باکس متنی نیوتنی که کل ارتفاع کانتینر را پوشش می‌دهد */
         .infobox {
             background: #f8fafc;
             border: 1px solid rgba(0, 0, 0, 0.1);
             padding: 2rem;
             border-radius: 14px;
-            height: 100%; /* کشیدگی کامل از ابتدا تا انتهای کانتینر پایینی */
-            overflow-y: auto; /* فعال کردن اسکرول داخلی در صورت ازدیاد متن */
+            height: 100%;
+            overflow-y: auto;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
         .infobox h2 {
