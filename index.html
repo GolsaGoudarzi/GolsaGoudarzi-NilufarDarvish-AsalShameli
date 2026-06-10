@@ -153,10 +153,10 @@
             padding: 0 2rem 2rem 2rem;
             display: flex;
             gap: 25px;
-            align-items: stretch; /* تضمین هم‌ترازی نهایی ستون چپ و راست */
+            align-items: stretch;
         }
 
-        /* ستون سمت چپ: مدیا، شبیه‌ساز، Part III و حالا REFERENCES */
+        /* ستون سمت چپ: (شامل باکس افقی Part II، شبیه‌ساز، Part III و REFERENCES) */
         .left-visual-column {
             flex: 0 0 75%;
             display: flex;
@@ -164,45 +164,44 @@
             gap: 20px;
         }
 
-        /* باکس گالری ۵ عکسی اقلیدسی */
-        .euclidean-foundations-box {
+        /* باکس اطلاعاتی Part II - اکنون به صورت افقی و خوانا در ستون چپ قرار دارد */
+        .infobox {
             width: 100%;
             background: #f8fafc;
-            border: 1px solid rgba(0,0,0,0.1);
-            border-radius: 14px;
+            border: 1px solid rgba(0, 0, 0, 0.1);
             padding: 2rem;
+            border-radius: 14px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            direction: ltr;
+            text-align: left;
+        }
+        .infobox h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: #1e293b;
+            border-left: 4px solid #ef4444;
+            padding-left: 12px;
+            font-weight: 700;
+        }
+        .newtonian-grid-layout {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+        .newtonian-list {
+            list-style-type: none;
             display: flex;
             flex-direction: column;
-            align-items: center;
+            gap: 1.2rem;
         }
-        .euclidean-foundations-box h3 {
-            width: 100%;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 1.5rem;
-            border-right: 4px solid #ef4444;
-            padding-right: 12px;
-            text-align: right;
+        .newtonian-list li {
+            font-size: 0.96rem;
+            line-height: 1.6;
+            color: #334155;
         }
-        .foundations-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 16px;
-            width: 100%;
-        }
-        .foundations-grid img {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: contain;
-            background-color: #ffffff;
-            border-radius: 10px;
-            border: 1px solid rgba(0,0,0,0.08);
-            transition: transform 0.3s ease;
-        }
-        .foundations-grid img:hover {
-            transform: scale(1.04);
+        .newtonian-list strong {
+            color: #ef4444;
+            font-weight: 600;
         }
 
         /* باکس تک عکسی بدون عنوان (pic8) */
@@ -279,7 +278,7 @@
             font-weight: 600;
         }
 
-        /* باکس افقی رفرنس‌ها - مستقر در فضای خالی زیر باکس Part III */
+        /* باکس افقی رفرنس‌ها */
         .references-box {
             width: 100%;
             background: #f8fafc;
@@ -320,7 +319,7 @@
             text-decoration: underline;
         }
 
-        /* ستون سمت راست: سایدبار متنی حاوی باکس‌های Part II و Part IV روی هم */
+        /* ستون سمت راست: سایدبار حاوی باکس تصاویر اقلیدسی و باکس Part IV */
         .sidebar-text-zone {
             flex: 0 0 25%; 
             display: flex;
@@ -330,16 +329,56 @@
             text-align: left;
         }
 
-        .infobox, .transition-spacetime-box {
+        /* باکس گالری تصاویر اقلیدسی - اکنون به صورت عمودی و متناسب در سایدبار جای دارد */
+        .euclidean-foundations-box {
+            width: 100%;
+            background: #f8fafc;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 14px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .euclidean-foundations-box h3 {
+            width: 100%;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid #ef4444;
+            padding-left: 10px;
+            text-align: left;
+        }
+        .foundations-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* چیدمان ۲ ستونه عالی برای جلوگیری از کشیدگی */
+            gap: 12px;
+            width: 100%;
+        }
+        .foundations-grid img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: contain; /* تضمین عدم فرسایش و تغییر ابعاد عکس‌ها */
+            background-color: #ffffff;
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        .foundations-grid img:hover {
+            transform: scale(1.04);
+        }
+
+        /* باکس اطلاعاتی Part IV */
+        .transition-spacetime-box {
             background: #f8fafc;
             border: 1px solid rgba(0, 0, 0, 0.1);
             padding: 1.8rem;
             border-radius: 14px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            flex: 1 1 auto;
         }
-
-        .infobox h2, .transition-spacetime-box h2 {
+        .transition-spacetime-box h2 {
             font-size: 1.2rem;
             margin-bottom: 1.4rem;
             color: #1e293b;
@@ -359,18 +398,18 @@
             margin-bottom: 1.5rem;
         }
 
-        .newtonian-list, .transition-list {
+        .transition-list {
             list-style-type: none;
             display: flex;
             flex-direction: column;
             gap: 1.4rem;
         }
-        .newtonian-list li, .transition-list li {
+        .transition-list li {
             font-size: 0.95rem;
             line-height: 1.6;
             color: #334155;
         }
-        .newtonian-list strong, .transition-list strong {
+        .transition-list strong {
             color: #ef4444;
             font-weight: 600;
         }
@@ -450,6 +489,7 @@
             .bottom-layout-container { flex-direction: column; }
             .left-visual-column { flex: 0 0 100%; }
             .sidebar-text-zone { flex: 0 0 100%; }
+            .newtonian-grid-layout { grid-template-columns: 1fr; }
             .foundations-grid { grid-template-columns: repeat(2, 1fr); }
             .main-content-zone { height: 50vh; }
         }
@@ -501,17 +541,44 @@
             
             <div class="left-visual-column">
                 
-                <div class="euclidean-foundations-box">
-                    <h3>EUCLIDEAN FOUNDATIONS</h3>
-                    <div class="foundations-grid">
-                        <img src="images/pic3.jpg" alt="Euclidean Foundation 1">
-                        <img src="images/pic4.jpg" alt="Euclidean Foundation 2">
-                        <img src="images/pic5.jpg" alt="Euclidean Foundation 3">
-                        <img src="images/pic6.jpg" alt="Euclidean Foundation 4">
-                        <img src="images/pic7.jpg" alt="Euclidean Foundation 5">
+                <section class="infobox">
+                    <h2>Part II: Newtonian Mechanics and Euclidean Foundations</h2>
+                    <div class="newtonian-grid-layout">
+                        <ul class="newtonian-list">
+                            <li>
+                                <strong>Newton’s Universal Gravitation:</strong> Newton synthesized the work of Galileo and Kepler, defining gravity as a universal force.
+                                <div class="math-display">$$F = G \frac{m_1 m_2}{r^2}$$</div>
+                            </li>
+                            <li>
+                                <strong>Laws of Motion:</strong> Newton established three fundamental laws of motion, specifically the second law:
+                                <div class="math-display">$$F = ma$$</div>
+                            </li>
+                            <li>
+                                <strong>The Problem of "Self-Evident" Definitions:</strong> Newtonian mechanics relies on the Euclidean definition of a straight line as a self-evident concept. Newton's First Law (an object remains at rest or in uniform motion in a straight line unless acted upon by a force) is fundamentally built upon this "obvious" definition, which non-Euclidean geometry eventually challenged.
+                            </li>
+                        </ul>
+                        <ul class="newtonian-list">
+                            <li>
+                                <strong>Euclidean Geometry and the Five Postulates:</strong> Euclidean geometry formed the mathematical bedrock of Newtonian physics. Its five postulates define a "flat" space:
+                                <ul class="sub-list">
+                                    <li>1. A straight line can be drawn between any two points.</li>
+                                    <li>2. A finite line can be extended indefinitely.</li>
+                                    <li>3. A circle can be described with any center and radius.</li>
+                                    <li>4. All right angles are equal.</li>
+                                    <li><strong>5. The Parallel Postulate:</strong> Through a point not on a given line, only one parallel line can be drawn.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                <strong>The Parallel Postulate and Curvature:</strong> Modifying the 5th postulate leads to different geometric surfaces:
+                                <ul class="sub-list">
+                                    <li>• <strong>Flat (Euclidean):</strong> Triangle angles sum to exactly <span class="math-inline">180°</span>.</li>
+                                    <li>• <strong>Spherical (Positive Curvature):</strong> Triangle angles sum to <span class="math-inline">> 180°</span>.</li>
+                                    <li>• <strong>Hyperbolic (Negative Curvature):</strong> Triangle angles sum to <span class="math-inline">< 180°</span>.</li>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="caption-number">(3)</div>
-                </div>
+                </section>
 
                 <div class="single-photo-box">
                     <img src="images/pic8.jpg" alt="Cosmological Graphic Reference">
@@ -575,40 +642,17 @@
 
             <div class="sidebar-text-zone">
                 
-                <section class="infobox">
-                    <h2>Part II: Newtonian Mechanics and Euclidean Foundations</h2>
-                    <ul class="newtonian-list">
-                        <li>
-                            <strong>Newton’s Universal Gravitation:</strong> Newton synthesized the work of Galileo and Kepler, defining gravity as a universal force.
-                            <div class="math-display">$$F = G \frac{m_1 m_2}{r^2}$$</div>
-                        </li>
-                        <li>
-                            <strong>Laws of Motion:</strong> Newton established three fundamental laws of motion, specifically the second law:
-                            <div class="math-display">$$F = ma$$</div>
-                        </li>
-                        <li>
-                            <strong>Euclidean Geometry and the Five Postulates:</strong> Euclidean geometry formed the mathematical bedrock of Newtonian physics. Its five postulates define a "flat" space:
-                            <ul class="sub-list">
-                                <li>1. A straight line can be drawn between any two points.</li>
-                                <li>2. A finite line can be extended indefinitely.</li>
-                                <li>3. A circle can be described with any center and radius.</li>
-                                <li>4. All right angles are equal.</li>
-                                <li><strong>5. The Parallel Postulate:</strong> Through a point not on a given line, only one parallel line can be drawn.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>The Parallel Postulate and Curvature:</strong> Modifying the 5th postulate leads to different geometric surfaces:
-                            <ul class="sub-list">
-                                <li>• <strong>Flat (Euclidean):</strong> Triangle angles sum to exactly <span class="math-inline">180°</span>.</li>
-                                <li>• <strong>Spherical (Positive Curvature):</strong> Triangle angles sum to <span class="math-inline">> 180°</span>.</li>
-                                <li>• <strong>Hyperbolic (Negative Curvature):</strong> Triangle angles sum to <span class="math-inline">< 180°</span>.</li>
-                            </ul>
-                        </li>
-                        <li>
-                            <strong>The Problem of "Self-Evident" Definitions:</strong> Newtonian mechanics relies on the Euclidean definition of a straight line as a self-evident concept. Newton's First Law (an object remains at rest or in uniform motion in a straight line unless acted upon by a force) is fundamentally built upon this "obvious" definition, which non-Euclidean geometry eventually challenged.
-                        </li>
-                    </ul>
-                </section>
+                <div class="euclidean-foundations-box">
+                    <h3>EUCLIDEAN FOUNDATIONS</h3>
+                    <div class="foundations-grid">
+                        <img src="images/pic3.jpg" alt="Euclidean Foundation 1">
+                        <img src="images/pic4.jpg" alt="Euclidean Foundation 2">
+                        <img src="images/pic5.jpg" alt="Euclidean Foundation 3">
+                        <img src="images/pic6.jpg" alt="Euclidean Foundation 4">
+                        <img src="images/pic7.jpg" alt="Euclidean Foundation 5">
+                    </div>
+                    <div class="caption-number">(3)</div>
+                </div>
 
                 <section class="transition-spacetime-box">
                     <h2>Part IV: The Transition to Non-Euclidean Spacetime</h2>
