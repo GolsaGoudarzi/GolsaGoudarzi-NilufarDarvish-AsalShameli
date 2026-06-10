@@ -22,7 +22,6 @@
             background-size: 30px 30px;
         }
 
-        /* لایه‌های دودل پس‌زمینه فانتزی و پوستر کهکشانی */
         body::before {
             content: "";
             position: absolute;
@@ -67,7 +66,6 @@
             padding: 3rem 2rem 1.5rem 2rem;
             display: flex;
             justify-content: center;
-            position: relative;
         }
         .hero-box {
             width: 100%;
@@ -118,10 +116,23 @@
             border-left: 5px solid #a78bfa;
             padding-left: 12px;
         }
+        .history-list {
+            list-style: none;
+            padding-left: 0;
+        }
         .history-list li {
             font-size: 0.98rem;
             line-height: 1.6;
             margin-bottom: 1.1rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .history-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #0f172a;
+            font-size: 1.2rem;
         }
 
         .image-gallery-box {
@@ -138,13 +149,15 @@
             font-size: 1.15rem;
             font-weight: 800;
             margin-bottom: 1.2rem;
-            border-right: 5px solid #38bdf8;
-            padding-right: 12px;
-            text-align: right;
+            border-left: 5px solid #38bdf8;
+            padding-left: 12px;
+            text-align: left;
         }
         .grid-images {
             display: flex;
             gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
         }
         .grid-images img {
             width: 290px;
@@ -153,6 +166,13 @@
             background-color: #ffffff;
             border-radius: 14px;
             border: 2px solid #0f172a;
+        }
+        .caption-number {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-top: 10px;
+            color: #0f172a;
         }
 
         .bottom-layout-container {
@@ -188,10 +208,34 @@
             padding-left: 12px;
             font-weight: 800;
         }
-        .newtonian-grid-layout {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+        
+        .bullet-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .bullet-list > li {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        .bullet-list > li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #0f172a;
+            font-size: 1.2rem;
+        }
+        
+        .nested-list {
+            list-style: none;
+            padding-left: 1.5rem;
+            margin-top: 0.4rem;
+        }
+        .nested-list li {
+            margin-bottom: 0.3rem;
+            font-size: 0.95rem;
         }
 
         .single-photo-box {
@@ -210,7 +254,7 @@
             object-fit: contain;
         }
 
-        /* کانتینر اصلی مدل سه بعدی */
+        /* بخش مدل سه بعدی */
         .main-content-zone {
             width: 100%;
             height: 60vh;
@@ -253,8 +297,25 @@
             direction: ltr;
             text-align: left;
         }
+        .references-box h2 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 1.2rem;
+            border-left: 5px solid #f43f5e;
+            padding-left: 12px;
+        }
+        .references-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .references-list li {
+            font-size: 0.92rem;
+            line-height: 1.6;
+            margin-bottom: 0.8rem;
+            color: #334155;
+        }
 
-        /* ستون سمت راست */
+        /* ستون سایدبار سمت راست */
         .sidebar-text-zone {
             flex: 0 0 25%; 
             display: flex;
@@ -267,7 +328,7 @@
 
         .euclidean-foundations-box {
             width: 100%;
-            max-height: 520px;
+            max-height: 600px;
             background: rgba(255, 255, 255, 0.95);
             border: 2px solid #0f172a;
             border-radius: 20px;
@@ -291,7 +352,6 @@
             z-index: 2;
         }
 
-        /* ⚡️ فلش زرد متحرک - کاملاً فیکس و چسبیده به باکس تصاویر اقلیدسی ⚡️ */
         @media (min-width: 1024px) {
             .sidebar-text-zone::before {
                 content: "⚡ scroll \A for more ⚡";
@@ -299,7 +359,7 @@
                 line-height: 1.3;
                 text-align: center;
                 position: absolute;
-                left: -45px; /* چسبیده به دیواره خارجی لبه چپ باکس */
+                left: -45px; 
                 top: 160px;  
                 background: #fef08a;
                 color: #0f172a;
@@ -353,10 +413,9 @@
         .math-display {
             display: block;
             font-family: "Times New Roman", Times, serif;
-            font-style: italic;
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             background: #f8fafc;
-            border: 2px dashed rgba(15, 23, 42, 0.2);
+            border: 2px dashed rgba(15, 23, 42, 0.15);
             padding: 0.8rem;
             margin: 0.6rem 0;
             border-radius: 10px;
@@ -394,24 +453,68 @@
             transition: opacity 0.2s ease;
         }
 
+        /* Enhanced Responsive and Mobile Optimization Overrides */
         @media (max-width: 1023px) {
+            body {
+                padding: 0 5px;
+            }
+            .hero-intro-zone {
+                padding: 1.5rem 1rem 1rem 1rem;
+            }
+            .hero-box h1 {
+                font-size: 1.6rem;
+            }
+            .hero-box p {
+                font-size: 0.9rem;
+            }
+            .middle-content-row, .bottom-layout-container { 
+                flex-direction: column; 
+                padding: 1rem;
+                gap: 20px;
+            }
+            .left-visual-column, .sidebar-text-zone { 
+                flex: 0 0 100%; 
+                width: 100%;
+            }
+            .history-text-box, .image-gallery-box, .infobox, .metrics-cosmology-box, .references-box, .euclidean-foundations-box, .transition-spacetime-box {
+                padding: 1.2rem;
+            }
+            .grid-images img {
+                width: 100%;
+                max-width: 290px;
+                height: auto;
+                aspect-ratio: 1;
+            }
+            .foundations-grid { 
+                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); 
+            }
+            .main-content-zone {
+                height: 45vh; /* Prevents 3D elements from pushing too far down on small screen sizes */
+            }
+            .math-display {
+                font-size: 1rem;
+                overflow-x: auto;
+                white-space: nowrap;
+                padding: 0.5rem;
+            }
             .sidebar-text-zone::before {
-                content: "⚡ scroll for more ⚡";
+                content: "⚡ Scroll for more info ⚡";
                 display: block;
+                position: relative;
+                top: 0;
+                left: 0;
                 text-align: center;
                 background: #fef08a;
                 color: #0f172a;
-                padding: 8px;
+                padding: 10px;
                 border-radius: 12px;
                 border: 2px solid #0f172a;
                 width: 100%;
                 transform: none;
                 animation: none;
+                margin-bottom: 10px;
+                box-shadow: none;
             }
-            .middle-content-row, .bottom-layout-container { flex-direction: column; }
-            .left-visual-column, .sidebar-text-zone { flex: 0 0 100%; }
-            .newtonian-grid-layout { grid-template-columns: 1fr; }
-            .foundations-grid { grid-template-columns: repeat(2, 1fr); }
         }
     </style>
     <script>
@@ -435,10 +538,10 @@
             <div class="history-text-box">
                 <h2>Part I: Historical Evolution of Cosmological Models</h2>
                 <ul class="history-list">
-                    <li><strong>Ptolemy and Geocentrism:</strong> Dominated for centuries, placing a stationary Earth at the center.</li>
-                    <li><strong>Copernicus and Heliocentrism:</strong> Shifted the center to the Sun, elegantly solving retrograde motion without epicycles.</li>
-                    <li><strong>Galileo’s Evidence:</strong> Discovered Jupiter's moons and Venus's phases, proving not everything orbits Earth.</li>
-                    <li><strong>Kepler’s Laws:</strong> Described mathematically how planets follow elliptical paths, though the cause remained unknown.</li>
+                    <li><strong>Ptolemy and the Almagest:</strong> For centuries, the geocentric model presented by Ptolemy in the Almagest dominated scientific thought. It posited that the Earth was the stationary center of the universe, though the model was flawed in its predictive accuracy.</li>
+                    <li><strong>Copernicus and Heliocentrism:</strong> In the 16th century, Nicolaus Copernicus introduced the Heliocentric model. By placing the Sun at the center, he provided a much simpler explanation for planetary motions, such as retrograde motion, which previously required complex mathematical "epicycles".</li>
+                    <li><strong>Galileo’s Observational Evidence:</strong> Using a telescope, Galileo provided the first physical evidence against geocentrism. His discovery of the moons of Jupiter and the phases of Venus proved that not all celestial bodies revolve around the Earth. Furthermore, his experiments established that all objects fall with the same acceleration regardless of mass.</li>
+                    <li><strong>Kepler’s Three Laws:</strong> Based on precise astronomical observations, Johannes Kepler formulated three laws of planetary motion. While Kepler described how planets moved (in elliptical orbits), he did not yet understand the underlying force driving them.</li>
                 </ul>
             </div>
 
@@ -448,6 +551,7 @@
                     <img src="images/pic1.jpg" alt="Ptolemaic Model">
                     <img src="images/pic2.jpg" alt="Copernican Model">
                 </div>
+                <div class="caption-number">(4)</div>
             </div>
         </div>
 
@@ -457,15 +561,28 @@
                 
                 <section class="infobox">
                     <h2>Part II: Newtonian Mechanics and Euclidean Foundations</h2>
-                    <div class="newtonian-grid-layout">
-                        <div>
-                            <p><strong>Newton’s Universal Gravitation:</strong> Gravity as an instantaneous force between masses.</p>
-                            <div class="math-display">$$F = G \frac{m_1 m_2}{r^2}$$</div>
-                        </div>
-                        <div>
-                            <p><strong>The Parallel Postulate:</strong> In flat space, parallel lines never meet, and interior triangle angles sum to exactly $180^\circ$. Non-Euclidean geometry breaks this core rule.</p>
-                        </div>
-                    </div>
+                    <ul class="bullet-list">
+                        <li><strong>Newton’s Universal Gravitation:</strong> Newton synthesized the work of Galileo and Kepler, defining gravity as a universal force.</li>
+                        <li><strong>Law of Universal Gravitation:</strong> <span class="math-inline">$F = G \frac{m_1 m_2}{r^2}$</span>.</li>
+                        <li><strong>Laws of Motion:</strong> Newton established three fundamental laws of motion, specifically the second law: <span class="math-inline">$F = ma$</span>.</li>
+                        <li><strong>Euclidean Geometry and the Five Postulates:</strong> Euclidean geometry formed the mathematical bedrock of Newtonian physics. Its five postulates define a "flat" space:
+                            <ul class="nested-list">
+                                <li>0. A straight line can be drawn between any two points.</li>
+                                <li>1. A finite line can be extended indefinitely.</li>
+                                <li>2. A circle can be described with any center and radius.</li>
+                                <li>3. All right angles are equal.</li>
+                                <li>4. The Parallel Postulate: Through a point not on a given line, only one parallel line can be drawn.</li>
+                            </ul>
+                        </li>
+                        <li><strong>The Parallel Postulate and Curvature:</strong> Modifying the 5th postulate leads to different geometric surfaces:
+                            <ul class="nested-list">
+                                <li>• Flat (Euclidean): Triangle angles sum to exactly 180°.</li>
+                                <li>• Spherical (Positive Curvature): Triangle angles sum to &gt;180°.</li>
+                                <li>• Hyperbolic (Negative Curvature): Triangle angles sum to &lt;180°.</li>
+                            </ul>
+                        </li>
+                        <li><strong>The Problem of "Self-Evident" Definitions:</strong> Newtonian mechanics relies on the Euclidean definition of a straight line as a self-evident concept. Newton's First Law (an object remains at rest or in uniform motion in a straight line unless acted upon by a force) is fundamentally built upon this "obvious" definition, which non-Euclidean geometry eventually challenged.</li>
+                    </ul>
                 </section>
 
                 <div class="single-photo-box">
@@ -482,12 +599,34 @@
 
                 <section class="metrics-cosmology-box">
                     <h2>Part III: Metrics and Cosmological Models</h2>
-                    <div class="math-display">$$(ds)^2 = (cdt)^2 - R^2(t) \left[ \frac{d\varpi^2}{1 - k\varpi^2} + \varpi^2 d\theta^2 + \varpi^2 \sin^2\theta d\phi^2 \right]$$</div>
+                    <ul class="bullet-list">
+                        <li><strong>The Metric Tensor:</strong> A metric is a mathematical rule used to calculate the interval or distance between two neighboring points.</li>
+                        <li><strong>2D Euclidean:</strong> <span class="math-inline">$dl^2 = dr^2 + r^2 d\theta^2$</span>.</li>
+                        <li><strong>2D Non-Euclidean:</strong> <span class="math-inline">$dl^2 = a^2 \left( \frac{dr'^2}{1 - r'^2} + r'^2 d\theta^2 \right)$</span>.</li>
+                        <li><strong>Inherent Differences:</strong> These metrics represent different internal curvatures ($k$) and cannot be mathematically transformed into one another.</li>
+                        <li><strong>The 4D Spacetime Interval:</strong> In General Relativity, the metric is extended to a 4D non-Euclidean spacetime $(ds)^2$ with a Lorentzian signature, typically featuring one positive time component and three negative spatial components.</li>
+                        <li><strong>Curvature and Universe Models:</strong> The curvature parameter $k$ dictates the global geometry of the universe:
+                            <ul class="nested-list">
+                                <li>• $k = +1$: Spherical geometry, corresponding to a Closed universe.</li>
+                                <li>• $k = 0$: Euclidean geometry, corresponding to a Flat universe.</li>
+                                <li>• $k = -1$: Hyperbolic geometry, corresponding to an Open universe.</li>
+                            </ul>
+                        </li>
+                        <li><strong>The Robertson-Walker (RW) Metric:</strong> Assuming the universe is homogeneous and isotropic, its geometry is described by the RW metric using the radial coordinate $\varpi$ (varpi) and a time-dependent scale factor $R(t)$:
+                            <div class="math-display">$$(ds)^2 = (cdt)^2 - R^2(t) \left[ \frac{d\varpi^2}{1 - k\varpi^2} + \varpi^2 d\theta^2 + \varpi^2 \sin^2\theta d\phi^2 \right]$$</div>
+                        </li>
+                    </ul>
                 </section>
 
                 <footer class="references-box">
                     <h2>REFERENCES</h2>
-                    <p>Carroll & Ostlie (2017) • Mirtorabi Cosmology Course (2026)</p>
+                    <ul class="references-list">
+                        <li>1. Carroll, B. W., & Ostlie, D. A. An Introduction to Modern Astrophysics, 2nd ed., Cambridge University Press, 2017.</li>
+                        <li>2. Mirtorabi, T., Cosmology Course Lecture Recordings, Department of Fundamental Physics, Faculty of Physics, Alzahra University, Tehran, Iran, 2026.</li>
+                        <li>3. GeekiliciousArt, Euclid's Five Postulates Art Print Series: Mathematics Geometric Decor, Etsy, 2026. Available at: https://www.etsy.com/listing/1835105844/euclids-five-postulates-art-print-series</li>
+                        <li>4. Apianus, P., & Frisius, G. (1539). Petri Apiani cosmographia. Antwerp: Arnold Birckmann. Digital image accessed via Wikimedia Commons</li>
+                        <li>5. Copernicus, N. (1543). De revolutionibus orbium coelestium. Nuremberg: Johannes Petreius. Image accessed via Wikimedia Commons.</li>
+                    </ul>
                 </footer>
 
             </div>
@@ -500,13 +639,26 @@
                         <img src="images/pic3.jpg" alt="Foundation 1">
                         <img src="images/pic4.jpg" alt="Foundation 2">
                         <img src="images/pic5.jpg" alt="Foundation 3">
+                        <img src="images/pic6.jpg" alt="Foundation 4">
+                        <img src="images/pic7.jpg" alt="Foundation 5">
                     </div>
+                    <div class="caption-number">(3)</div>
                 </div>
 
                 <section class="transition-spacetime-box">
-                    <h2>Part IV: Transition to Non-Euclidean Spacetime</h2>
+                    <h2>Part IV: The Transition to Non-Euclidean Spacetime</h2>
                     <img src="images/pic9.jpg" alt="Transition Diagram" class="embedded-box-image">
-                    <div class="math-display">$$\frac{d^2x^\lambda}{d\tau^2} + \Gamma^\lambda_{\mu\nu} \frac{dx^\mu}{d\tau} \frac{dx^\nu}{d\tau} = 0$$</div>
+                    <ul class="bullet-list">
+                        <li><strong>The Foundations of Modern Geometry:</strong> Mathematicians such as Gauss, Riemann, and Lobachevsky developed non-Euclidean systems. They redefined a "straight line" as a geodesic—the shortest path between two points on any given surface. Einstein utilized these non-Euclidean principles to construct the theories of Special and General Relativity.</li>
+                        <li><strong>Special Relativity and 4D Spacetime:</strong> Special Relativity transformed our understanding of time. Instead of being a mere parameter of evolution ($t$), time became the fourth dimension of a unified 4D spacetime manifold ($x^0 = ct$).</li>
+                        <li><strong>Comparing Newton’s Second Law to the Geodesic Equation:</strong>
+                            <ul class="nested-list">
+                                <li>• Newtonian Mechanics: $F = m \frac{d^2x}{dt^2}$.</li>
+                                <li>• General Relativity (The Geodesic Equation): <div class="math-display">$$\frac{d^2x^\lambda}{d\tau^2} + \Gamma^\lambda_{\mu\nu} \frac{dx^\mu}{d\tau} \frac{dx^\nu}{d\tau} = 0$$</div></li>
+                            </ul>
+                        </li>
+                        <li><strong>Gravity as Geometry, Not Force:</strong> In this equation, $\tau$ (tau) is the proper time or evolution parameter. When comparing this to the case where Newtonian force ($F$) is zero, the term involving $\Gamma$ (The Connection/Christoffel Symbols) represents the gravitational effect. This demonstrates that in General Relativity, gravity is not a force but a manifestation of the geometric properties of curved spacetime.</li>
+                    </ul>
                 </section>
 
             </div>
@@ -586,16 +738,25 @@
         trackedPoints.push({o:hypGroup, lp:new THREE.Vector3(hp[0].x, (hp[0].x**2-hp[0].z**2)*0.45+0.03, hp[0].z), el:createAngleLabel('29.4°')}, {o:hypGroup, lp:new THREE.Vector3(hp[1].x, (hp[1].x**2-hp[1].z**2)*0.45+0.03, hp[1].z), el:createAngleLabel('30.7°')}, {o:hypGroup, lp:new THREE.Vector3(hp[2].x, (hp[2].x**2-hp[2].z**2)*0.45+0.03, hp[2].z), el:createAngleLabel('30.7°')});
         modelGroups.push({g:hypGroup, isExpanded: false});
 
+        /* تابع توزیع موقعیت گروه ها جهت ممانعت مطلق از اورلپ شدن روی مانیتورها و تبلت ها */
         function arrange(){
             const container = document.querySelector('.main-content-zone');
             if (!container) return;
             const w = container.clientWidth;
             const h = container.clientHeight;
             camera.aspect = w / h; camera.updateProjectionMatrix(); renderer.setSize(w, h);
-            let isMob = window.innerWidth<1024;
-            flatGroup.position.set(isMob?-1.2:-2.8, 0, 0); sphGroup.position.set(0,0,0); hypGroup.position.set(isMob?1.2:2.8, 0, 0);
-            camera.position.set(0, isMob?0.4:1.5, isMob?5.5:9.0); camera.lookAt(0,0,0);
-            modelGroups.forEach(m => m.ts = isMob?0.48:1.0);
+            
+            let isMob = window.innerWidth < 1024;
+            
+            // تخصیص فواصل استاتیک امن تر (2.9 واحد فاصله) برای عدم برخورد مدلها با یکدیگر
+            flatGroup.position.set(isMob ? -1.3 : -2.9, 0, 0); 
+            sphGroup.position.set(0, 0, 0); 
+            hypGroup.position.set(isMob ? 1.3 : 2.9, 0, 0);
+            
+            camera.position.set(0, isMob ? 0.45 : 1.5, isMob ? 5.8 : 9.2); 
+            camera.lookAt(0,0,0);
+            
+            modelGroups.forEach(m => m.ts = isMob ? 0.45 : 1.0);
         }
         arrange(); window.addEventListener('resize', arrange);
 
@@ -610,8 +771,8 @@
             if(hits.length>0){
                 activeG = hits[0].object.userData.parentGroup; isDrag = true; prevM = {x, y};
                 titleEl.innerText = hits[0].object.userData.title; titleEl.classList.add('visible');
-                modelGroups.forEach(m => { m.isExpanded = (m.g===activeG); m.ts = m.isExpanded?(window.innerWidth<1024?0.7:1.35):(window.innerWidth<1024?0.48:1.0); });
-            } else { titleEl.classList.remove('visible'); modelGroups.forEach(m => { m.isExpanded=false; m.ts=(window.innerWidth<1024?0.48:1.0); }); }
+                modelGroups.forEach(m => { m.isExpanded = (m.g===activeG); m.ts = m.isExpanded?(window.innerWidth<1024?0.68:1.35):(window.innerWidth<1024?0.45:1.0); });
+            } else { titleEl.classList.remove('visible'); modelGroups.forEach(m => { m.isExpanded=false; m.ts=(window.innerWidth<1024?0.45:1.0); }); }
         }
         function move(x, y){ if(!isDrag || !activeG) return; activeG.rotation.y += (x-prevM.x)*0.009; activeG.rotation.x += (y-prevM.y)*0.009; prevM = {x, y}; }
 
