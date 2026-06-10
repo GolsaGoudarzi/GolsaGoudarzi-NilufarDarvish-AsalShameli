@@ -25,17 +25,17 @@
             min-height: 100vh;
         }
 
-        /* ۱. باکس هیرو (بالاترین باکس) */
+        /* ۱. باکس هیرو (بالاترین باکس توضیحات) */
         .hero-intro-zone {
             width: 100%;
-            padding: 3rem 2rem 1rem 2rem;
+            padding: 3rem 2rem 1.5rem 2rem;
             display: flex;
             justify-content: center;
             background: #ffffff;
         }
         .hero-box {
             width: 100%;
-            max-width: 1100px;
+            max-width: 1200px;
             background: #f8fafc;
             border: 2px solid #ef4444;
             border-radius: 16px;
@@ -50,49 +50,52 @@
             margin-bottom: 1rem;
         }
 
-        /* ۲. باکس جدید تصاویر (سمت راست - زیر هیرو) */
+        /* ۲. باکس جدید گالری تصاویر (بزرگتر شده و تراز شده به سمت راست) */
         .gallery-outer-zone {
             width: 100%;
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem 1.5rem 2rem;
+            padding: 0 2rem 2rem 2rem;
             display: flex;
-            justify-content: flex-end; /* راندن باکس به سمت راست */
+            justify-content: flex-start; /* ترازبندی محتوا به سمت راست در ساختار RTL */
         }
         .image-gallery-box {
-            width: 45%; /* پهنای باکس تصاویر */
+            width: 55%; /* ابعاد بزرگتر شده نسبت به قبل */
             background: #f8fafc;
             border: 1px solid rgba(0,0,0,0.1);
             border-radius: 14px;
-            padding: 1.5rem;
+            padding: 1.8rem;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
         .image-gallery-box h3 {
-            font-size: 1rem;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
             color: #1e293b;
-            border-right: 3px solid #ef4444;
-            padding-right: 10px;
+            border-right: 4px solid #ef4444;
+            padding-right: 12px;
+            text-align: right;
         }
-        /* ساختار شبکه‌ای برای عکس‌ها - قابلیت اضافه کردن عکس در آینده */
+        /* گرید چیدمان تصاویر */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-            gap: 12px;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            gap: 16px;
         }
+        /* استایل اختصاصی برای عدم کراپ تصاویر مربعی شما */
         .grid-container img {
             width: 100%;
-            height: 100px;
-            object-fit: cover;
+            aspect-ratio: 1 / 1; /* حفظ دقیق قالب مربعی */
+            object-fit: contain; /* نمایش نسخه کامل و غیرکراپ عکس (Uncropped) */
+            background-color: rgba(0, 0, 0, 0.02); /* پس‌زمینه ملایم برای خالی نماندن حاشیه عکس‌ها */
             border-radius: 8px;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.06);
             transition: transform 0.3s ease;
         }
         .grid-container img:hover {
-            transform: scale(1.05);
+            transform: scale(1.04);
         }
 
-        /* ۳. بخش محتوای اصلی (مدل‌ها و سایدبار) */
+        /* ۳. بخش اصلی (مدل‌های سه بعدی و متن سایدبار) */
         .main-content-zone {
             display: flex;
             width: 100vw;
@@ -137,7 +140,7 @@
         }
         #model-title.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-        /* برچسب زوایا (انگلیسی) */
+        /* برچسب زوایای انگلیسی */
         .angle-label {
             position: absolute;
             z-index: 8;
@@ -169,7 +172,7 @@
         p { font-size: 1rem; line-height: 1.7; text-align: justify; }
         .highlight { color: #ef4444; font-weight: bold; }
 
-        /* موبایل */
+        /* ریسپانسیو مانیتورهای کوچک و موبایل */
         @media (max-width: 1023px) {
             .hero-box h1 { font-size: 1.3rem; }
             .image-gallery-box { width: 100%; }
@@ -193,10 +196,10 @@
 
         <div class="gallery-outer-zone">
             <div class="image-gallery-box">
-                <h3>Visual References</h3>
+                <h3>Early Cosmological Models</h3>
                 <div class="grid-container">
-                    <img src="images/pic1.jpg" alt="Reference 1">
-                    <img src="images/pic2.jpg" alt="Reference 2">
+                    <img src="images/pic1.jpg" alt="Model Reference 1">
+                    <img src="images/pic2.jpg" alt="Model Reference 2">
                 </div>
             </div>
         </div>
@@ -260,13 +263,12 @@
         trackedPoints.push({o:flatGroup, lp:fp[0], el:createAngleLabel('50.2°')}, {o:flatGroup, lp:fp[1], el:createAngleLabel('66.4°')}, {o:flatGroup, lp:fp[2], el:createAngleLabel('63.4°')});
         modelGroups.push({g:flatGroup, isExpanded: false});
 
-        // مدل کروی (اصلاح موقعیت مثلث و پچ تیره)
+        // مدل کروی
         const radius = 1.1;
         const sphMesh = new THREE.Mesh(new THREE.SphereGeometry(radius, 32, 32), purpleMeshMat);
         sphMesh.userData = { title: 'Spherical Space', parentGroup: sphGroup };
         sphGroup.add(sphMesh); clickableObjects.push(sphMesh);
         sphGroup.add(new THREE.Mesh(new THREE.SphereGeometry(radius, 32, 32), gridMat));
-        // پچ تیره در سمت مخالف
         const patch = new THREE.Mesh(new THREE.SphereGeometry(radius+0.003, 32,32, Math.PI, Math.PI/2, 0, Math.PI/2), new THREE.MeshStandardMaterial({color: 0x8b5cf6}));
         patch.rotation.x = -Math.PI/2; sphGroup.add(patch);
         const sp = []; 
@@ -277,7 +279,7 @@
         trackedPoints.push({o:sphGroup, lp:new THREE.Vector3(-radius,0,0), el:createAngleLabel('90.0°')}, {o:sphGroup, lp:new THREE.Vector3(0,0,-radius), el:createAngleLabel('90.0°')}, {o:sphGroup, lp:new THREE.Vector3(0,radius,0), el:createAngleLabel('90.0°')});
         modelGroups.push({g:sphGroup, isExpanded: false});
 
-        // مدل هذلولی (اصلاح تقعر ملایم)
+        // مدل هذلولی
         const saddleGeo = new THREE.BufferGeometry(); const v=[], seg=24, sz=2.2;
         for(let i=0;i<=seg;i++) for(let j=0;j<=seg;j++){ let x=(i/seg-0.5)*sz, z=(j/seg-0.5)*sz; v.push(x,(x*x-z*z)*0.45,z); }
         const idx=[]; for(let i=0;i<seg;i++) for(let j=0;j<seg;j++){ let a=i*(seg+1)+j, b=a+1, c=(i+1)*(seg+1)+j, d=c+1; idx.push(a,b,c,b,d,c); }
