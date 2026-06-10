@@ -50,17 +50,54 @@
             margin-bottom: 1rem;
         }
 
-        /* ۲. باکس جدید گالری تصاویر (بزرگتر شده و تراز شده به سمت راست) */
-        .gallery-outer-zone {
+        /* ۲. ردیف جدید شامل باکس متن تاریخچه (چپ) و باکس تصاویر (راست) */
+        .middle-content-row {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem 2rem 2rem;
             display: flex;
-            justify-content: flex-start; /* ترازبندی محتوا به سمت راست در ساختار RTL */
+            gap: 20px; /* فاصله بین دو باکس */
         }
+
+        /* باکس تاریخچه نجوم (سمت چپ) */
+        .history-text-box {
+            flex: 0 0 55%; /* ۵۵ درصد کل عرض ردیف */
+            background: #f8fafc;
+            border: 1px solid rgba(0,0,0,0.1);
+            border-radius: 14px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            direction: ltr; /* نمایش چپ‌به‌راست برای متن انگلیسی */
+            text-align: left;
+        }
+        .history-text-box h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 1.2rem;
+            border-left: 4px solid #ef4444;
+            padding-left: 12px;
+        }
+        .history-list {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .history-list li {
+            font-size: 0.98rem;
+            line-height: 1.6;
+            color: #334155;
+        }
+        .history-list strong {
+            color: #ef4444;
+            font-weight: 600;
+        }
+
+        /* باکس گالری تصاویر (سمت راست) */
         .image-gallery-box {
-            width: 55%; /* ابعاد بزرگتر شده نسبت به قبل */
+            flex: 0 0 45%; /* ۴۵ درصد کل عرض ردیف */
             background: #f8fafc;
             border: 1px solid rgba(0,0,0,0.1);
             border-radius: 14px;
@@ -75,18 +112,16 @@
             padding-right: 12px;
             text-align: right;
         }
-        /* گرید چیدمان تصاویر */
         .grid-container {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
             gap: 16px;
         }
-        /* استایل اختصاصی برای عدم کراپ تصاویر مربعی شما */
         .grid-container img {
             width: 100%;
-            aspect-ratio: 1 / 1; /* حفظ دقیق قالب مربعی */
-            object-fit: contain; /* نمایش نسخه کامل و غیرکراپ عکس (Uncropped) */
-            background-color: rgba(0, 0, 0, 0.02); /* پس‌زمینه ملایم برای خالی نماندن حاشیه عکس‌ها */
+            aspect-ratio: 1 / 1;
+            object-fit: contain;
+            background-color: rgba(0, 0, 0, 0.02);
             border-radius: 8px;
             border: 1px solid rgba(0,0,0,0.06);
             transition: transform 0.3s ease;
@@ -95,7 +130,7 @@
             transform: scale(1.04);
         }
 
-        /* ۳. بخش اصلی (مدل‌های سه بعدی و متن سایدبار) */
+        /* ۳. بخش اصلی پایین (مدل‌های سه بعدی و متن سایدبار) */
         .main-content-zone {
             display: flex;
             width: 100vw;
@@ -140,7 +175,6 @@
         }
         #model-title.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-        /* برچسب زوایای انگلیسی */
         .angle-label {
             position: absolute;
             z-index: 8;
@@ -175,7 +209,8 @@
         /* ریسپانسیو مانیتورهای کوچک و موبایل */
         @media (max-width: 1023px) {
             .hero-box h1 { font-size: 1.3rem; }
-            .image-gallery-box { width: 100%; }
+            .middle-content-row { flex-direction: column; }
+            .history-text-box, .image-gallery-box { flex: 0 0 100%; width: 100%; }
             .main-content-zone { flex-direction: column; height: auto; }
             .canvas-zone { height: 45vh; position: sticky; top: 0; z-index: 5; background: white; border-bottom: 1px solid #ddd; }
             .sidebar-text-zone { width: 100vw; height: auto; padding: 1.5rem 1rem; }
@@ -194,7 +229,18 @@
             </div>
         </div>
 
-        <div class="gallery-outer-zone">
+        <div class="middle-content-row">
+            
+            <div class="history-text-box">
+                <h2>Part I: Historical Evolution of Cosmological Models</h2>
+                <ul class="history-list">
+                    <li><strong>Ptolemy and the Almagest:</strong> For centuries, the geocentric model presented by Ptolemy in the Almagest dominated scientific thought. It posited that the Earth was the stationary center of the universe, though the model was flawed in its predictive accuracy.</li>
+                    <li><strong>Copernicus and Heliocentrism:</strong> In the 16th century, Nicolaus Copernicus introduced the Heliocentric model. By placing the Sun at the center, he provided a much simpler explanation for planetary motions, such as retrograde motion, which previously required complex mathematical "epicycles".</li>
+                    <li><strong>Galileo’s Observational Evidence:</strong> Using a telescope, Galileo provided the first physical evidence against geocentrism. His discovery of the moons of Jupiter and the phases of Venus proved that not all celestial bodies revolve around the Earth. Furthermore, his experiments established that all objects fall with the same acceleration regardless of mass.</li>
+                    <li><strong>Kepler’s Three Laws:</strong> Based on precise astronomical observations, Johannes Kepler formulated three laws of planetary motion. While Kepler described how planets moved (in elliptical orbits), he did not yet understand the underlying force driving them.</li>
+                </ul>
+            </div>
+
             <div class="image-gallery-box">
                 <h3>Early Cosmological Models</h3>
                 <div class="grid-container">
@@ -202,6 +248,7 @@
                     <img src="images/pic2.jpg" alt="Model Reference 2">
                 </div>
             </div>
+
         </div>
 
         <div class="main-content-zone">
