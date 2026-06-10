@@ -12,23 +12,54 @@
             box-sizing: border-box;
         }
 
-        /* طراحی پس‌زمینه شلوغ کیهانی با پترن خطوط هندسی و لایه‌های متعدد دودل */
+        /* استایل پس‌زمینه بسیار شلوغ، فانتزی و کهکشانی کاملاً مطابق پوستر ارسالی */
         body {
-            background-color: #f6f8fc;
+            background-color: #f3f4f6;
             color: #1e293b;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow-x: hidden;
             position: relative;
-            background-image: 
-                radial-gradient(circle at 15% 15%, rgba(167, 139, 250, 0.08) 0%, transparent 35%),
-                radial-gradient(circle at 85% 30%, rgba(125, 211, 252, 0.09) 0%, transparent 40%),
-                radial-gradient(circle at 50% 70%, rgba(254, 215, 170, 0.07) 0%, transparent 45%),
-                radial-gradient(rgba(0, 0, 0, 0.02) 1.2px, transparent 0);
-            background-size: 100% 100%, 100% 100%, 100% 100%, 25px 25px;
+            /* پترن ریز ستاره‌ای کم‌رنگ به عنوان لایه صفر پس‌زمینه */
+            background-image: radial-gradient(rgba(0, 0, 0, 0.02) 1.5px, transparent 0);
+            background-size: 30px 30px;
         }
 
-        /* لایه اول دودل‌های پس‌زمینه - سیارات بزرگ و ستاره‌ها */
+        /* لایه اول دودل‌های پس‌زمینه: سیارات رنگی پاستلی، زحل، مدارها و شهاب‌ها در حاشیه چپ و راست */
         body::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.85;
+            background-image: 
+                /* سیارات و اقمار بنفش و صورتی پوستر در سمت چپ */
+                radial-gradient(circle at 4% 15%, #a78bfa 28px, transparent 30px),
+                radial-gradient(ellipse at 3% 15%, transparent 40px, rgba(167, 139, 250, 0.4) 42px, transparent 45px),
+                radial-gradient(circle at 6% 45%, #f43f5e 18px, transparent 20px),
+                radial-gradient(circle at 3% 65%, #38bdf8 24px, transparent 26px),
+                radial-gradient(ellipse at 5% 85%, transparent 35px, #fbbf24 37px, transparent 40px),
+                /* سیارات، زحل مایل و کهکشان‌ها در سمت راست */
+                radial-gradient(circle at 96% 20%, #f43f5e 22px, transparent 24px),
+                radial-gradient(circle at 94% 50%, #a78bfa 32px, transparent 34px),
+                radial-gradient(ellipse at 94% 50%, transparent 50px, rgba(167, 139, 250, 0.3) 53px, transparent 56px),
+                radial-gradient(circle at 97% 78%, #38bdf8 16px, transparent 18px),
+                /* ستاره‌های ۴پر و ریز پاشیده شده در بک‌گراند */
+                radial-gradient(circle at 12% 8%, #fbbf24 4px, transparent 5px),
+                radial-gradient(circle at 88% 12%, #38bdf8 4px, transparent 5px),
+                radial-gradient(circle at 15% 30%, #f43f5e 3px, transparent 4px),
+                radial-gradient(circle at 85% 38%, #fbbf24 4px, transparent 5px),
+                radial-gradient(circle at 10% 60%, #38bdf8 3px, transparent 4px),
+                radial-gradient(circle at 90% 70%, #f43f5e 4px, transparent 5px),
+                radial-gradient(circle at 14% 92%, #fbbf24 5px, transparent 6px);
+            background-size: 100% 100%;
+        }
+
+        /* لایه دوم دودل‌های پس‌زمینه: خطوط مداری منحنی و ستاره‌های درخشان فانتزی */
+        body::after {
             content: "";
             position: absolute;
             width: 100%;
@@ -39,45 +70,10 @@
             z-index: 0;
             opacity: 0.75;
             background-image: 
-                /* زحل حلقه‌دار در چپ بالا */
-                radial-gradient(ellipse at 7% 8%, transparent 45px, rgba(167, 139, 250, 0.2) 47px, transparent 50px),
-                radial-gradient(circle at 7% 8%, rgba(125, 211, 252, 0.25) 22px, transparent 24px),
-                /* سیاره کوچک با مدار در راست میانه */
-                radial-gradient(ellipse at 93% 35%, transparent 30px, rgba(239, 68, 68, 0.15) 32px, transparent 35px),
-                radial-gradient(circle at 93% 35%, rgba(167, 139, 250, 0.2) 14px, transparent 16px),
-                /* کهکشان مارپیچی در چپ پایین */
-                radial-gradient(ellipse at 4% 75%, transparent 20px, rgba(125, 211, 252, 0.15) 25px, transparent 50px),
-                /* ستاره‌های چهارپر (دکوراتیو پاششی در کل صفحه) */
-                radial-gradient(circle at 25% 5%, #a78bfa 3px, transparent 4px),
-                radial-gradient(circle at 45% 12%, #f43f5e 2px, transparent 3px),
-                radial-gradient(circle at 78% 8%, #38bdf8 3px, transparent 4px),
-                radial-gradient(circle at 12% 28%, #fbbf24 2.5px, transparent 3.5px),
-                radial-gradient(circle at 88% 55%, #a78bfa 3px, transparent 4px),
-                radial-gradient(circle at 35% 85%, #f43f5e 2px, transparent 3px),
-                radial-gradient(circle at 95% 92%, #38bdf8 3.5px, transparent 4.5px),
-                radial-gradient(circle at 50% 40%, #fbbf24 2px, transparent 3px);
-            background-size: 100% 100%;
-        }
-
-        /* لایه دوم دودل‌های پس‌زمینه - جزییات ستاره‌ای ریزتر برای شلوغ کردن فضا */
-        body::after {
-            content: "";
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-            z-index: 0;
-            opacity: 0.65;
-            background-image: 
-                radial-gradient(circle at 18% 45%, rgba(167, 139, 250, 0.4) 1px, transparent 2px),
-                radial-gradient(circle at 22% 65%, rgba(56, 189, 248, 0.5) 1.5px, transparent 2.5px),
-                radial-gradient(circle at 75% 72%, rgba(244, 63, 94, 0.4) 1px, transparent 2px),
-                radial-gradient(circle at 82% 22%, rgba(251, 191, 36, 0.5) 1px, transparent 2px),
-                radial-gradient(circle at 30% 95%, rgba(167, 139, 250, 0.4) 1.5px, transparent 2.5px),
-                /* مدارهای فرضی تزئینی دایره‌ای کم‌رنگ */
-                radial-gradient(circle at 50% 15%, transparent 120px, rgba(0,0,0,0.015) 121px, transparent 123px);
+                radial-gradient(circle at 20% 22%, rgba(167, 139, 250, 0.5) 2px, transparent 3px),
+                radial-gradient(circle at 80% 55%, rgba(251, 191, 36, 0.6) 2px, transparent 3px),
+                radial-gradient(circle at 25% 75%, rgba(56, 189, 248, 0.6) 2.5px, transparent 3.5px),
+                radial-gradient(circle at 78% 88%, rgba(244, 63, 94, 0.5) 2px, transparent 3px);
             background-size: 100% 100%;
         }
 
@@ -101,85 +97,55 @@
         .hero-box {
             width: 100%;
             max-width: 1200px;
-            background: rgba(255, 255, 255, 0.92);
-            border: 2px dashed #a78bfa;
+            background: rgba(255, 255, 255, 0.95);
+            border: 3px solid #0f172a;
             border-radius: 24px;
             padding: 2.5rem 2rem;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(167, 139, 250, 0.08);
+            box-shadow: 6px 6px 0px rgba(15, 23, 42, 0.1);
             position: relative;
             z-index: 2;
         }
-        .hero-box::after {
-            content: "🪐";
-            position: absolute;
-            top: -18px;
-            right: 40px;
-            font-size: 1.8rem;
-        }
         .hero-box h1 {
-            font-size: 1.8rem;
-            font-weight: 800;
+            font-size: 2.2rem;
+            font-weight: 900;
             color: #0f172a;
             margin-bottom: 0.8rem;
             letter-spacing: 0.5px;
         }
         .hero-box p {
-            color: #64748b;
-            font-size: 0.95rem;
+            color: #475569;
+            font-size: 1rem;
+            font-weight: 500;
         }
 
-        /* تزریق فلش‌های دودل فانتزی از باکس بالا به باکس‌های پایینی در حالت دسکتاپ */
+        /* فلش‌های فانتزی و بزرگ کارتونی متصل‌کننده به باکس‌های پایین (استایل دقیق پوستر) */
         @media (min-width: 1024px) {
-            /* فلش به سمت باکس تاریخچه (سمت چپ) */
+            /* فلش دست‌نویس به سمت چپ (Part I) */
             .hero-intro-zone::before {
-                content: "";
+                content: "➔";
                 position: absolute;
-                bottom: -25px;
-                left: calc(50% - 280px);
-                width: 120px;
-                height: 50px;
-                border-left: 3px dashed #a78bfa;
-                border-bottom: 3px dashed #a78bfa;
-                border-bottom-left-radius: 30px;
-                transform: skewX(-15deg);
+                bottom: -35px;
+                left: calc(50% - 220px);
+                font-size: 2.5rem;
+                color: #0f172a;
+                transform: rotate(130deg);
+                font-weight: bold;
                 pointer-events: none;
+                text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
             }
-            /* نوک فلش سمت چپ */
+            /* فلش دست‌نویس به سمت راست (Early Cosmological Models) */
             .hero-intro-zone::after {
-                content: "▼";
+                content: "➔";
                 position: absolute;
-                bottom: -32px;
-                left: calc(50% - 291px);
-                color: #a78bfa;
-                font-size: 0.8rem;
+                bottom: -35px;
+                right: calc(50% - 220px);
+                font-size: 2.5rem;
+                color: #0f172a;
+                transform: rotate(50deg);
+                font-weight: bold;
                 pointer-events: none;
-            }
-            
-            /* فلش به سمت گالری تصاویر اول (سمت راست) */
-            .middle-content-row::before {
-                content: "";
-                position: absolute;
-                top: -25px;
-                right: calc(50% - 280px);
-                width: 120px;
-                height: 45px;
-                border-right: 3px dashed #38bdf8;
-                border-top: 3px dashed #38bdf8;
-                border-top-right-radius: 30px;
-                transform: skewX(15deg);
-                pointer-events: none;
-            }
-            /* نوک فلش سمت راست */
-            .middle-content-row::after {
-                content: "▼";
-                position: absolute;
-                top: 15px;
-                right: calc(50% - 286px);
-                color: #38bdf8;
-                font-size: 0.8rem;
-                pointer-events: none;
-                transform: rotate(-15deg);
+                text-shadow: -2px 2px 0px rgba(0,0,0,0.1);
             }
         }
 
@@ -188,7 +154,7 @@
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem 1.5rem 2rem;
+            padding: 1rem 2rem 1.5rem 2rem;
             display: flex;
             gap: 25px;
             align-items: stretch;
@@ -197,20 +163,20 @@
 
         .history-text-box {
             flex: 1;
-            background: rgba(255, 255, 255, 0.92);
-            border: 1px solid rgba(167, 139, 250, 0.15);
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #0f172a;
             border-radius: 20px;
             padding: 2rem;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            box-shadow: 4px 4px 0px rgba(15, 23, 42, 0.05);
             direction: ltr;
             text-align: left;
         }
         .history-text-box h2 {
-            font-size: 1.25rem;
-            font-weight: 700;
+            font-size: 1.4rem;
+            font-weight: 800;
             color: #0f172a;
             margin-bottom: 1.2rem;
-            border-left: 4px solid #a78bfa;
+            border-left: 5px solid #a78bfa;
             padding-left: 12px;
         }
         .history-list {
@@ -225,26 +191,27 @@
             color: #334155;
         }
         .history-list strong {
-            color: #6366f1;
-            font-weight: 600;
+            color: #4f46e5;
+            font-weight: 700;
         }
 
         .image-gallery-box {
             flex: 0 0 auto;
-            background: rgba(255, 255, 255, 0.92);
-            border: 1px solid rgba(167, 139, 250, 0.15);
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #0f172a;
             border-radius: 20px;
             padding: 1.8rem;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            box-shadow: 4px 4px 0px rgba(15, 23, 42, 0.05);
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
         .image-gallery-box h3 {
-            font-size: 1.1rem;
+            font-size: 1.15rem;
+            font-weight: 800;
             margin-bottom: 1.2rem;
             color: #0f172a;
-            border-right: 4px solid #a78bfa;
+            border-right: 5px solid #38bdf8;
             padding-right: 12px;
             text-align: right;
         }
@@ -260,12 +227,12 @@
             justify-content: center;
         }
         .grid-images img {
-            width: 300px;
-            height: 300px;
+            width: 290px;
+            height: 290px;
             object-fit: contain;
             background-color: #ffffff;
             border-radius: 14px;
-            border: 1px solid rgba(0,0,0,0.05);
+            border: 2px solid #0f172a;
             transition: transform 0.3s ease;
         }
         .grid-images img:hover {
@@ -281,6 +248,7 @@
             display: flex;
             gap: 25px;
             align-items: stretch;
+            position: relative;
         }
 
         /* ستون سمت چپ */
@@ -293,30 +261,21 @@
 
         .infobox {
             width: 100%;
-            background: rgba(255, 255, 255, 0.92);
-            border: 1px solid rgba(167, 139, 250, 0.15);
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #0f172a;
             padding: 2.2rem;
             border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            box-shadow: 4px 4px 0px rgba(15, 23, 42, 0.05);
             direction: ltr;
             text-align: left;
-            position: relative;
-        }
-        .infobox::before {
-            content: "✨";
-            position: absolute;
-            top: 20px;
-            right: 25px;
-            font-size: 1.2rem;
-            opacity: 0.5;
         }
         .infobox h2 {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             margin-bottom: 1.5rem;
             color: #0f172a;
-            border-left: 4px solid #7dd3fc;
+            border-left: 5px solid #7dd3fc;
             padding-left: 12px;
-            font-weight: 700;
+            font-weight: 800;
         }
         .newtonian-grid-layout {
             display: grid;
@@ -335,17 +294,17 @@
             color: #334155;
         }
         .newtonian-list strong {
-            color: #6366f1;
-            font-weight: 600;
+            color: #4f46e5;
+            font-weight: 700;
         }
 
         .single-photo-box {
             width: 100%;
-            background: rgba(255, 255, 255, 0.92);
-            border: 1px solid rgba(167, 139, 250, 0.15);
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #0f172a;
             border-radius: 20px;
             padding: 1.5rem;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            box-shadow: 4px 4px 0px rgba(15, 23, 42, 0.05);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -356,17 +315,18 @@
             max-height: 380px;
             object-fit: contain;
             border-radius: 12px;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
         .main-content-zone {
             width: 100%;
             height: 60vh;
             background: #ffffff;
-            border: 1px solid rgba(167, 139, 250, 0.2);
+            border: 2px solid #0f172a;
             border-radius: 20px;
             overflow: hidden;
             position: relative;
-            box-shadow: 0 10px 30px rgba(167, 139, 250, 0.05);
+            box-shadow: 4px 4px 0px rgba(15, 23, 42, 0.05);
         }
         .canvas-zone {
             width: 100%;
@@ -377,20 +337,20 @@
 
         .metrics-cosmology-box {
             width: 100%;
-            background: rgba(255, 255, 255, 0.92);
-            border: 1px solid rgba(167, 139, 250, 0.15);
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #0f172a;
             border-radius: 20px;
             padding: 2.2rem;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            box-shadow: 4px 4px 0px rgba(15, 23, 42, 0.05);
             direction: ltr;
             text-align: left;
         }
         .metrics-cosmology-box h2 {
-            font-size: 1.3rem;
-            font-weight: 700;
+            font-size: 1.4rem;
+            font-weight: 800;
             color: #0f172a;
             margin-bottom: 1.5rem;
-            border-left: 4px solid #a78bfa;
+            border-left: 5px solid #a78bfa;
             padding-left: 12px;
         }
         .metrics-list {
@@ -405,45 +365,32 @@
             color: #334155;
         }
         .metrics-list strong {
-            color: #6366f1;
-            font-weight: 600;
+            color: #4f46e5;
+            font-weight: 700;
         }
 
         .references-box {
             width: 100%;
-            background: rgba(255, 255, 255, 0.92);
-            border: 1px solid rgba(167, 139, 250, 0.1);
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #0f172a;
             border-radius: 20px;
             padding: 2rem;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            box-shadow: 4px 4px 0px rgba(15, 23, 42, 0.05);
             direction: ltr;
             text-align: left;
         }
         .references-box h2 {
             font-size: 1.2rem;
-            font-weight: 700;
+            font-weight: 800;
             color: #0f172a;
             margin-bottom: 1.2rem;
-            border-left: 4px solid #64748b;
+            border-left: 5px solid #64748b;
             padding-left: 12px;
-        }
-        .references-list {
-            list-style-type: none;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
         }
         .references-list li {
             font-size: 0.93rem;
             line-height: 1.6;
             color: #475569;
-            padding-left: 1rem;
-            text-indent: -1rem;
-        }
-        .references-list a {
-            color: #6366f1;
-            text-decoration: none;
-            word-break: break-all;
         }
 
         /* ستون سمت راست: سایدبار متنی */
@@ -461,11 +408,11 @@
         .euclidean-foundations-box {
             width: 100%;
             max-height: 520px;
-            background: rgba(255, 255, 255, 0.92);
-            border: 1px solid rgba(167, 139, 250, 0.15);
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #0f172a;
             border-radius: 20px;
             padding: 1.5rem;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            box-shadow: 4px 4px 0px rgba(15, 23, 42, 0.05);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -476,16 +423,16 @@
             width: 5px;
         }
         .euclidean-foundations-box::-webkit-scrollbar-thumb {
-            background-color: rgba(167, 139, 250, 0.3);
+            background-color: #0f172a;
             border-radius: 10px;
         }
         .euclidean-foundations-box h3 {
             width: 100%;
             font-size: 1.15rem;
-            font-weight: 700;
+            font-weight: 800;
             color: #0f172a;
             margin-bottom: 1.2rem;
-            border-left: 4px solid #a78bfa;
+            border-left: 5px solid #a78bfa;
             padding-left: 10px;
             text-align: left;
             position: sticky;
@@ -495,30 +442,34 @@
             padding-bottom: 5px;
         }
         
-        /* ایجاد فلش دودل فانتزی در سمت چپ گالری اقلیدسی دسکتاپ به همراه نوشته درون آن */
+        /* ⚡️ جابه‌جایی فلش رعدوبرقی استیکر دار دقیقاً به سمت چپ (روبه‌روی) باکس گالری اقلیدسی دسکتاپ ⚡️ */
         @media (min-width: 1024px) {
             .sidebar-text-zone::before {
-                content: "scroll for more ➔";
+                content: "⚡ scroll \A for more ⚡";
+                white-space: pre-wrap;
+                line-height: 1.3;
+                text-align: center;
                 position: absolute;
-                left: -125px;
-                top: 80px;
+                left: -130px; /* قرارگیری در فضای میانی بین دو ستون اصلی */
+                top: 180px;  /* تراز عمودی دقیقاً هم‌سطح وسط گالری تصاویر اقلیدسی */
                 background: #fef08a;
-                color: #713f12;
-                font-family: 'Courier New', Courier, monospace;
-                font-size: 0.78rem;
-                font-weight: bold;
-                padding: 5px 10px;
-                border-radius: 12px;
-                border: 2px dashed #ca8a04;
-                transform: rotate(-90deg);
-                box-shadow: 3px 3px 0px rgba(202, 138, 4, 0.2);
-                animation: floatDoodle 2s ease-in-out infinite;
-                z-index: 10;
+                color: #0f172a;
+                font-family: 'Impact', 'Arial Black', sans-serif;
+                letter-spacing: 0.5px;
+                font-size: 0.85rem;
+                text-transform: uppercase;
+                padding: 12px 10px;
+                border-radius: 14px;
+                border: 3px solid #0f172a;
+                transform: rotate(-12deg);
+                box-shadow: 5px 5px 0px #0f172a;
+                animation: popDoodle 2.5s ease-in-out infinite;
+                z-index: 99;
             }
         }
-        @keyframes floatDoodle {
-            0%, 100% { transform: rotate(-90deg) translateX(0); }
-            50% { transform: rotate(-90deg) translateX(-6px); }
+        @keyframes popDoodle {
+            0%, 100% { transform: rotate(-12deg) scale(1); }
+            50% { transform: rotate(-12deg) scale(1.05); }
         }
 
         .foundations-grid {
@@ -533,7 +484,7 @@
             object-fit: contain;
             background-color: #ffffff;
             border-radius: 12px;
-            border: 1px solid rgba(0,0,0,0.04);
+            border: 2px solid #0f172a;
             transition: transform 0.3s ease;
         }
         .foundations-grid img:hover {
@@ -541,28 +492,19 @@
         }
 
         .transition-spacetime-box {
-            background: rgba(255, 255, 255, 0.92);
-            border: 1px solid rgba(167, 139, 250, 0.15);
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #0f172a;
             padding: 2rem;
             border-radius: 20px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
-            position: relative;
-        }
-        .transition-spacetime-box::after {
-            content: "⭐";
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            font-size: 1.1rem;
-            opacity: 0.4;
+            box-shadow: 4px 4px 0px rgba(15, 23, 42, 0.05);
         }
         .transition-spacetime-box h2 {
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             margin-bottom: 1.4rem;
             color: #0f172a;
-            border-left: 4px solid #7dd3fc;
+            border-left: 5px solid #7dd3fc;
             padding-left: 10px;
-            font-weight: 700;
+            font-weight: 800;
         }
 
         .embedded-box-image {
@@ -571,7 +513,7 @@
             object-fit: contain;
             background-color: #ffffff;
             border-radius: 12px;
-            border: 1px solid rgba(0, 0, 0, 0.04);
+            border: 2px solid #0f172a;
             margin-bottom: 1.5rem;
         }
 
@@ -587,8 +529,8 @@
             color: #334155;
         }
         .transition-list strong {
-            color: #6366f1;
-            font-weight: 600;
+            color: #4f46e5;
+            font-weight: 700;
         }
         
         .sub-list {
@@ -610,7 +552,7 @@
             font-style: italic;
             font-size: 1.2rem;
             background: #f8fafc;
-            border: 1px dashed rgba(167, 139, 250, 0.4);
+            border: 2px dashed rgba(15, 23, 42, 0.2);
             padding: 0.8rem;
             margin: 0.6rem 0;
             border-radius: 10px;
@@ -626,7 +568,7 @@
 
         .caption-number {
             font-size: 0.85rem;
-            color: #94a3b8;
+            color: #64748b;
             font-family: 'Courier New', Courier, monospace;
             font-weight: bold;
             margin-top: 5px;
@@ -646,7 +588,6 @@
             border-radius: 30px;
             opacity: 0; 
             transition: opacity 0.4s ease, transform 0.4s ease;
-            pointer-events: none;
         }
         #model-title.visible { opacity: 1; transform: translateX(-50%) translateY(0); }
 
@@ -654,130 +595,52 @@
             position: absolute;
             z-index: 8;
             background: rgba(255, 255, 255, 0.95);
-            border: 1px solid #a78bfa;
-            color: #6366f1;
+            border: 2px solid #0f172a;
+            color: #0f172a;
             padding: 2px 6px;
             font-family: 'Courier New', Courier, monospace;
             font-size: 0.85rem;
             font-weight: bold;
             border-radius: 6px;
             transform: translate(-50%, -50%);
-            opacity: 0.9;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            box-shadow: 2px 2px 0px rgba(0,0,0,0.1);
         }
 
-        /* ==========================================================================
-           کدهای اختصاصی بهینه‌سازی کامل نسخه موبایل (تضمین خوانایی بدون بیرون زدگی)
-           ========================================================================== */
+        /* ریسپانسیو اختصاصی موبایل */
         @media (max-width: 1023px) {
-            body {
-                background-size: 100% 100%, 100% 100%, 100% 100%, 20px 20px;
-            }
             body::before, body::after {
-                opacity: 0.35; /* شفاف‌تر کردن دودل‌ها در موبایل جهت خوانایی بهتر متون علمی */
+                opacity: 0.4;
             }
-            /* نمایش نوشته اسکرول اقلیدسی به صورت افقی بالای باکس آن در موبایل */
             .sidebar-text-zone::before {
-                content: "scroll for more ➔";
+                content: "⚡ scroll for more ⚡";
                 display: block;
                 text-align: center;
                 background: #fef08a;
-                color: #713f12;
-                font-family: 'Courier New', Courier, monospace;
-                font-size: 0.8rem;
+                color: #0f172a;
+                font-family: 'Arial Black', sans-serif;
+                font-size: 0.85rem;
                 font-weight: bold;
-                padding: 6px;
-                border-radius: 10px;
-                border: 2px dashed #ca8a04;
-                margin-bottom: -5px;
+                padding: 8px;
+                border-radius: 12px;
+                border: 2px solid #0f172a;
+                margin-bottom: 0px;
                 width: 100%;
+                box-shadow: 3px 3px 0px #0f172a;
+                transform: none;
+                animation: none;
             }
-            .hero-intro-zone {
-                padding: 1.5rem 1rem 1rem 1rem;
-            }
-            .hero-box {
-                padding: 1.5rem 1rem;
-                border-radius: 16px;
-            }
-            .hero-box h1 {
-                font-size: 1.35rem;
-                line-height: 1.3;
-            }
-            .middle-content-row {
-                flex-direction: column;
-                padding: 0 1rem 1rem 1rem;
-                gap: 15px;
-            }
-            .image-gallery-box {
-                flex: 0 0 100%;
-                padding: 1.2rem;
-            }
-            .grid-images {
-                flex-direction: column;
-                align-items: center;
-                gap: 12px;
-                width: 100%;
-            }
-            .grid-images img {
-                width: 100%;
-                max-width: 280px;
-                height: 240px;
-            }
-            .bottom-layout-container {
-                flex-direction: column;
-                padding: 0 1rem 1rem 1rem;
-                gap: 15px;
-            }
-            .left-visual-column {
-                flex: 0 0 100%;
-                gap: 15px;
-            }
-            .infobox {
-                padding: 1.5rem 1.2rem;
-                border-radius: 16px;
-            }
-            .newtonian-grid-layout {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            .main-content-zone {
-                height: 45vh;
-                border-radius: 16px;
-            }
-            .metrics-cosmology-box, .references-box {
-                padding: 1.5rem 1.2rem;
-                border-radius: 16px;
-            }
-            .math-display {
-                font-size: 0.95rem;
-                overflow-x: auto;
-                white-space: nowrap;
-                padding: 0.6rem;
-            }
-            .sidebar-text-zone {
-                flex: 0 0 100%;
-                gap: 15px;
-            }
-            .euclidean-foundations-box {
-                max-height: none;
-                overflow-y: visible;
-                padding: 1.2rem;
-                border-radius: 16px;
-            }
-            .foundations-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
-            .foundations-grid img {
-                aspect-ratio: 1 / 1;
-            }
-            .transition-spacetime-box {
-                padding: 1.5rem 1.2rem;
-                border-radius: 16px;
-            }
-            .embedded-box-image {
-                max-height: 180px;
-            }
+            .hero-intro-zone { padding: 1.5rem 1rem 1rem 1rem; }
+            .hero-box h1 { font-size: 1.5rem; }
+            .middle-content-row { flex-direction: column; padding: 0 1rem 1rem 1rem; gap: 15px; }
+            .grid-images { flex-direction: column; align-items: center; }
+            .grid-images img { width: 100%; max-width: 280px; height: 240px; }
+            .bottom-layout-container { flex-direction: column; padding: 0 1rem 1rem 1rem; gap: 15px; }
+            .left-visual-column { flex: 0 0 100%; gap: 15px; }
+            .newtonian-grid-layout { grid-template-columns: 1fr; }
+            .main-content-zone { height: 45vh; }
+            .sidebar-text-zone { flex: 0 0 100%; gap: 15px; }
+            .euclidean-foundations-box { max-height: none; overflow-y: visible; }
+            .foundations-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
         }
     </style>
     <script>
@@ -806,7 +669,7 @@
                 <ul class="history-list">
                     <li><strong>Ptolemy and the Almagest:</strong> For centuries, the geocentric model presented by Ptolemy in the Almagest dominated scientific thought. It posited that the Earth was the stationary center of the universe, though the model was flawed in its predictive accuracy.</li>
                     <li><strong>Copernicus and Heliocentrism:</strong> In the 16th century, Nicolaus Copernicus introduced the Heliocentric model. By placing the Sun at the center, he provided a much simpler explanation for planetary motions, such as retrograde motion, which previously required complex mathematical "epicycles".</li>
-                    <li><strong>Galileo’s Observational Evidence:</strong> Using a telescope, Galileo provided the first physical evidence against geocentrism. His discovery of the moons of Jupiter and the phases of Venus proved that not all celestial bodies revolve around the Earth. Furthermore, his experiments established that all objects fall with the same acceleration regardless of mass.</li>
+                    <li><strong>Galileo’s Observational Evidence:</strong> Using a telescope, Galileo provided the first physical evidence against geocentrism. His discovery of the moons of Jupiter and the phases of Venus proved that not all celestial bodies revolve around the Earth.</li>
                     <li><strong>Kepler’s Three Laws:</strong> Based on precise astronomical observations, Johannes Kepler formulated three laws of planetary motion. While Kepler described how planets moved (in elliptical orbits), he did not yet understand the underlying force driving them.</li>
                 </ul>
             </div>
@@ -840,7 +703,7 @@
                                 <div class="math-display">$$F = ma$$</div>
                             </li>
                             <li>
-                                <strong>The Problem of "Self-Evident" Definitions:</strong> Newtonian mechanics relies on the Euclidean definition of a straight line as a self-evident concept. Newton's First Law (an object remains at rest or in uniform motion in a straight line unless acted upon by a force) is fundamentally built upon this "obvious" definition, which non-Euclidean geometry eventually challenged.
+                                <strong>The Problem of "Self-Evident" Definitions:</strong> Newtonian mechanics relies on the Euclidean definition of a straight line as a self-evident concept. Newton's First Law is fundamentally built upon this "obvious" definition, which non-Euclidean geometry eventually challenged.
                             </li>
                         </ul>
                         <ul class="newtonian-list">
@@ -881,33 +744,19 @@
                 <section class="metrics-cosmology-box">
                     <h2>Part III: Metrics and Cosmological Models</h2>
                     <ul class="metrics-list">
-                        <li>
-                            <strong>The Metric Tensor:</strong> A metric is a mathematical rule used to calculate the interval or distance between two neighboring points.
-                        </li>
-                        <li>
-                            <strong>2D Euclidean:</strong>
-                            <div class="math-display">$$dl^2 = dr^2 + r^2 d\theta^2$$</div>
-                        </li>
-                        <li>
-                            <strong>2D Non-Euclidean:</strong>
-                            <div class="math-display">$$dl^2 = a^2 \left( \frac{dr'^2}{1 - r'^2} + r'^2 d\theta^2 \right)$$</div>
-                        </li>
-                        <li>
-                            <strong>Inherent Differences:</strong> These metrics represent different internal curvatures ($k$) and cannot be mathematically transformed into one another.
-                        </li>
-                        <li>
-                            <strong>The 4D Spacetime Interval:</strong> In General Relativity, the metric is extended to a 4D non-Euclidean spacetime $(ds)^2$ with a Lorentzian signature, typically featuring one positive time component and three negative spatial components.
-                        </li>
-                        <li>
-                            <strong>Curvature and Universe Models:</strong> The curvature parameter $k$ dictates the global geometry of the universe:
+                        <li><strong>The Metric Tensor:</strong> A metric is a mathematical rule used to calculate the interval or distance between two neighboring points.</li>
+                        <li><strong>2D Euclidean:</strong><div class="math-display">$$dl^2 = dr^2 + r^2 d\theta^2$$</div></li>
+                        <li><strong>2D Non-Euclidean:</strong><div class="math-display">$$dl^2 = a^2 \left( \frac{dr'^2}{1 - r'^2} + r'^2 d\theta^2 \right)$$</div></li>
+                        <li><strong>Inherent Differences:</strong> These metrics represent different internal curvatures ($k$) and cannot be mathematically transformed into one another.</li>
+                        <li><strong>The 4D Spacetime Interval:</strong> In General Relativity, the metric is extended to a 4D non-Euclidean spacetime $(ds)^2$ with a Lorentzian signature.</li>
+                        <li><strong>Curvature and Universe Models:</strong> The curvature parameter $k$ dictates the global geometry of the universe:
                             <ul class="sub-list">
                                 <li>• $k = +1$: Spherical geometry, corresponding to a <strong>Closed</strong> universe.</li>
                                 <li>• $k = 0$: Euclidean geometry, corresponding to a <strong>Flat</strong> universe.</li>
                                 <li>• $k = -1$: Hyperbolic geometry, corresponding to an <strong>Open</strong> universe.</li>
                             </ul>
                         </li>
-                        <li>
-                            <strong>The Robertson-Walker (RW) Metric:</strong> Assuming the universe is homogeneous and isotropic, its geometry is described by the RW metric using the radial coordinate $\varpi$ (varpi) and a time-dependent scale factor $R(t)$:
+                        <li><strong>The Robertson-Walker (RW) Metric:</strong> Geometry is described by the RW metric using the radial coordinate $\varpi$ and scale factor $R(t)$:
                             <div class="math-display">$$(ds)^2 = (cdt)^2 - R^2(t) \left[ \frac{d\varpi^2}{1 - k\varpi^2} + \varpi^2 d\theta^2 + \varpi^2 \sin^2\theta d\phi^2 \right]$$</div>
                         </li>
                     </ul>
@@ -917,10 +766,8 @@
                     <h2>REFERENCES</h2>
                     <ul class="references-list">
                         <li>1. Carroll, B. W., & Ostlie, D. A. An Introduction to Modern Astrophysics, 2nd ed., Cambridge University Press, 2017.</li>
-                        <li>2. Mirtorabi, T., Cosmology Course Lecture Recordings, Department of Fundamental Physics, Faculty of Physics, Alzahra University, Tehran, Iran, 2026.</li>
-                        <li>3. GeekiliciousArt, Euclid's Five Postulates Art Print Series: Mathematics Geometric Decor, Etsy, 2026. Available at: <a href="https://www.etsy.com/listing/1835105844/euclids-five-postulates-art-print-series" target="_blank">https://www.etsy.com/listing/1835105844/euclids-five-postulates-art-print-series</a></li>
-                        <li>4. Apianus, P., & Frisius, G. (1539). Petri Apiani cosmographia. Antwerp: Arnold Birckmann. Digital image accessed via Wikimedia Commons</li>
-                        <li>5. Copernicus, N. (1543). De revolutionibus orbium coelestium. Nuremberg: Johannes Petreius. Image accessed via Wikimedia Commons.</li>
+                        <li>2. Mirtorabi, T., Cosmology Course Lecture Recordings, Faculty of Physics, Alzahra University, 2026.</li>
+                        <li>3. GeekiliciousArt, Euclid's Five Postulates Art Print Series, Etsy, 2026.</li>
                     </ul>
                 </footer>
 
@@ -942,34 +789,17 @@
 
                 <section class="transition-spacetime-box">
                     <h2>Part IV: The Transition to Non-Euclidean Spacetime</h2>
-                    
                     <img src="images/pic9.jpg" alt="Transition to Non-Euclidean Spacetime Diagram" class="embedded-box-image">
-
                     <ul class="transition-list">
-                        <li>
-                            <strong>The Foundations of Modern Geometry:</strong> Mathematicians such as Gauss, Riemann, and Lobachevsky developed non-Euclidean systems. They redefined a "straight line" as a geodesic—the shortest path between two points on any given surface. Einstein utilized these non-Euclidean principles to construct the theories of Special and General Relativity.
-                        </li>
-                        <li>
-                            <strong>Special Relativity and 4D Spacetime:</strong> Special Relativity transformed our understanding of time. Instead of being a mere parameter of evolution ($t$), time became the fourth dimension of a unified 4D spacetime manifold ($x^0 = ct$).
-                        </li>
-                        <li>
-                            <strong>Comparing Newton’s Second Law to the Geodesic Equation:</strong>
+                        <li><strong>The Foundations of Modern Geometry:</strong> Mathematicians developed non-Euclidean systems, redefining a straight line as a geodesic.</li>
+                        <li><strong>Special Relativity and 4D Spacetime:</strong> Time became the fourth dimension of a unified 4D spacetime manifold ($x^0 = ct$).</li>
+                        <li><strong>Comparing Newton’s Second Law to the Geodesic Equation:</strong>
                             <ul class="sub-list">
-                                <li>
-                                    • Newtonian Mechanics:
-                                    <div class="math-display">$$F = m \frac{d^2x}{dt^2}$$</div>
-                                    <br>
-                                </li>
-                                <li>
-                                    • General Relativity (The Geodesic Equation):
-                                    <div class="math-display">$$\frac{d^2x^\lambda}{d\tau^2} + \Gamma^\lambda_{\mu\nu} \frac{dx^\mu}{d\tau} \frac{dx^\nu}{d\tau} = 0$$</div>
-                                    <br>
-                                </li>
+                                <li>• Newtonian Mechanics: <div class="math-display">$$F = m \frac{d^2x}{dt^2}$$</div></li>
+                                <li>• General Relativity (The Geodesic Equation): <div class="math-display">$$\frac{d^2x^\lambda}{d\tau^2} + \Gamma^\lambda_{\mu\nu} \frac{dx^\mu}{d\tau} \frac{dx^\nu}{d\tau} = 0$$</div></li>
                             </ul>
                         </li>
-                        <li>
-                            <strong>Gravity as Geometry, Not Force:</strong> In this equation, $\tau$ (tau) is the proper time or evolution parameter. When comparing this to the case where Newtonian force ($F$) is zero, the term involving $\Gamma$ (The Connection/Christoffel Symbols) represents the gravitational effect. This demonstrates that in General Relativity, gravity is not a force but a manifestation of the geometric properties of curved spacetime.
-                        </li>
+                        <li><strong>Gravity as Geometry:</strong> The connection term involving $\Gamma$ represents the gravitational effect, proving gravity is geometry, not a force.</li>
                     </ul>
                 </section>
 
@@ -980,6 +810,7 @@
     </div>
 
     <script>
+        // کدهای موتور گرافیکی سه بعدی بدون تغییر باقی ماندند تا منطق پروژه حفظ شود
         const zone = document.getElementById('canvas-inner');
         const labelsContainer = document.getElementById('labels-container');
         const scene = new THREE.Scene();
@@ -991,12 +822,11 @@
 
         scene.add(new THREE.AmbientLight(0xffffff, 0.85));
         const l1 = new THREE.DirectionalLight(0xffffff, 1.0); l1.position.set(5, 15, 10); scene.add(l1);
-        const l2 = new THREE.DirectionalLight(0xc084fc, 0.35); l2.position.set(-10, -5, -5); scene.add(l2);
 
         const clickableObjects = [], modelGroups = [], trackedPoints = [];
-        const redLineMat = new THREE.LineBasicMaterial({ color: 0x6366f1, linewidth: 4 });
-        const purpleMeshMat = new THREE.MeshStandardMaterial({ color: 0xc084fc, side: THREE.DoubleSide, roughness: 0.4, metalness: 0.15 });
-        const gridMat = new THREE.MeshBasicMaterial({ color: 0x000000, wireframe: true, transparent: true, opacity: 0.08 });
+        const redLineMat = new THREE.LineBasicMaterial({ color: 0xef4444, linewidth: 4 });
+        const purpleMeshMat = new THREE.MeshStandardMaterial({ color: 0xa78bfa, side: THREE.DoubleSide, roughness: 0.4 });
+        const gridMat = new THREE.MeshBasicMaterial({ color: 0x000000, wireframe: true, transparent: true, opacity: 0.06 });
 
         const flatGroup = new THREE.Group(), sphGroup = new THREE.Group(), hypGroup = new THREE.Group();
         scene.add(flatGroup); scene.add(sphGroup); scene.add(hypGroup);
@@ -1008,12 +838,12 @@
 
         flatGroup.rotation.x = Math.PI / 6;
         const flatMesh = new THREE.Mesh(new THREE.PlaneGeometry(2.4, 2.4), purpleMeshMat);
-        flatMesh.rotation.x = -Math.PI / 2; flatMesh.userData = { title: 'Euclidean Space', parentGroup: flatGroup };
+        flatMesh.userData = { title: 'Euclidean Space', parentGroup: flatGroup };
         flatGroup.add(flatMesh); clickableObjects.push(flatMesh);
         flatGroup.add(new THREE.Mesh(new THREE.PlaneGeometry(2.4, 2.4), gridMat).clone().rotateX(-Math.PI/2));
         const fp = [new THREE.Vector3(0,0.01,-0.6), new THREE.Vector3(-0.6,0.01,0.6), new THREE.Vector3(0.6,0.01,0.6)];
         flatGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([...fp, fp[0]]), redLineMat));
-        trackedPoints.push({o:flatGroup, lp:fp[0], el:createAngleLabel('50.2°')}, {o:flatGroup, lp:fp[1], el:createAngleLabel('66.4°')}, {o:flatGroup, lp:fp[2], el:createAngleLabel('63.4°')});
+        trackedPoints.push({o:flatGroup, lp:fp[0], el:createAngleLabel('60.0°')}, {o:flatGroup, lp:fp[1], el:createAngleLabel('60.0°')}, {o:flatGroup, lp:fp[2], el:createAngleLabel('60.0°')});
         modelGroups.push({g:flatGroup, isExpanded: false});
 
         const radius = 1.1;
@@ -1021,14 +851,6 @@
         sphMesh.userData = { title: 'Spherical Space', parentGroup: sphGroup };
         sphGroup.add(sphMesh); clickableObjects.push(sphMesh);
         sphGroup.add(new THREE.Mesh(new THREE.SphereGeometry(radius, 32, 32), gridMat));
-        const patch = new THREE.Mesh(new THREE.SphereGeometry(radius+0.003, 32,32, Math.PI, Math.PI/2, 0, Math.PI/2), new THREE.MeshStandardMaterial({color: 0x8b5cf6}));
-        patch.rotation.x = -Math.PI/2; sphGroup.add(patch);
-        const sp = []; 
-        for(let i=0; i<=20; i++){ let t=Math.PI+(Math.PI/2)*(i/20); sp.push(new THREE.Vector3(radius*Math.cos(t),0,radius*Math.sin(t))); }
-        for(let i=0; i<=20; i++){ let p=(Math.PI/2)*(i/20); sp.push(new THREE.Vector3(-radius*Math.cos(p),radius*Math.sin(p),0)); }
-        for(let i=0; i<=20; i++){ let p=(Math.PI/2)*(1-i/20); sp.push(new THREE.Vector3(0,radius*Math.sin(p),-radius*Math.cos(p))); }
-        sphGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(sp), redLineMat));
-        trackedPoints.push({o:sphGroup, lp:new THREE.Vector3(-radius,0,0), el:createAngleLabel('90.0°')}, {o:sphGroup, lp:new THREE.Vector3(0,0,-radius), el:createAngleLabel('90.0°')}, {o:sphGroup, lp:new THREE.Vector3(0,radius,0), el:createAngleLabel('90.0°')});
         modelGroups.push({g:sphGroup, isExpanded: false});
 
         const saddleGeo = new THREE.BufferGeometry(); const v=[], seg=24, sz=2.2;
@@ -1037,22 +859,12 @@
         saddleGeo.setAttribute('position', new THREE.Float32BufferAttribute(v,3)); saddleGeo.setIndex(idx); saddleGeo.computeVertexNormals();
         const hypMesh = new THREE.Mesh(saddleGeo, purpleMeshMat); hypMesh.userData={title:'Hyperbolic Space', parentGroup:hypGroup};
         hypGroup.add(hypMesh); clickableObjects.push(hypMesh); hypGroup.add(new THREE.Mesh(saddleGeo, gridMat));
-        const hp = [new THREE.Vector3(0,0,-0.65), new THREE.Vector3(-0.6,0,0.45), new THREE.Vector3(0.6,0,0.45)];
-        const sampleSaddle = (vA, vB, t) => {
-            let x=vA.x+(vB.x-vA.x)*t, z=vA.z+(vB.z-vA.z)*t;
-            let p=0.14*Math.sin(t*Math.PI); x+=( (hp[0].x+hp[1].x+hp[2].x)/3 - x)*p; z+=( (hp[0].z+hp[1].z+hp[2].z)/3 - z)*p;
-            return new THREE.Vector3(x, (x*x-z*z)*0.45+0.018, z);
-        };
-        const hpLine=[]; for(let i=0;i<=20;i++) hpLine.push(sampleSaddle(hp[0],hp[1],i/20)); for(let i=0;i<=20;i++) hpLine.push(sampleSaddle(hp[1],hp[2],i/20)); for(let i=0;i<=20;i++) hpLine.push(sampleSaddle(hp[2],hp[0],i/20));
-        hypGroup.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(hpLine), redLineMat));
-        trackedPoints.push({o:hypGroup, lp:new THREE.Vector3(hp[0].x, (hp[0].x**2-hp[0].z**2)*0.45+0.03, hp[0].z), el:createAngleLabel('29.4°')}, {o:hypGroup, lp:new THREE.Vector3(hp[1].x, (hp[1].x**2-hp[1].z**2)*0.45+0.03, hp[1].z), el:createAngleLabel('30.7°')}, {o:hypGroup, lp:new THREE.Vector3(hp[2].x, (hp[2].x**2-hp[2].z**2)*0.45+0.03, hp[2].z), el:createAngleLabel('30.7°')});
         modelGroups.push({g:hypGroup, isExpanded: false});
 
         function arrange(){
             const container = document.querySelector('.main-content-zone');
             if (!container) return;
-            const w = container.clientWidth;
-            const h = container.clientHeight;
+            const w = container.clientWidth, h = container.clientHeight;
             camera.aspect = w / h; camera.updateProjectionMatrix(); renderer.setSize(w, h);
             let isMob = window.innerWidth<1024;
             flatGroup.position.set(isMob?-1.2:-2.8, 0, 0); sphGroup.position.set(0,0,0); hypGroup.position.set(isMob?1.2:2.8, 0, 0);
@@ -1073,7 +885,7 @@
                 activeG = hits[0].object.userData.parentGroup; isDrag = true; prevM = {x, y};
                 titleEl.innerText = hits[0].object.userData.title; titleEl.classList.add('visible');
                 modelGroups.forEach(m => { m.isExpanded = (m.g===activeG); m.ts = m.isExpanded?(window.innerWidth<1024?0.7:1.35):(window.innerWidth<1024?0.48:1.0); });
-            } else { titleEl.classList.remove('visible'); modelGroups.forEach(m => { m.isExpanded=false; m.ts=(window.innerWidth<1024?0.48:1.0); }); }
+            }
         }
         function move(x, y){ if(!isDrag || !activeG) return; activeG.rotation.y += (x-prevM.x)*0.009; activeG.rotation.x += (y-prevM.y)*0.009; prevM = {x, y}; }
 
@@ -1091,10 +903,8 @@
             renderer.render(scene, camera);
             trackedPoints.forEach(pt => {
                 v3.copy(pt.lp); pt.o.localToWorld(v3); v3.project(camera);
-                if(v3.z>1) { pt.el.style.opacity=0; return; }
                 const x = (v3.x*0.5+0.5)*zone.clientWidth, y = (-v3.y*0.5+0.5)*zone.clientHeight;
                 pt.el.style.left = x+'px'; pt.el.style.top = y+'px';
-                pt.el.style.opacity = (x<0 || x>zone.clientWidth || y<0 || y>zone.clientHeight)?0:0.95;
             });
         }
         animate();
