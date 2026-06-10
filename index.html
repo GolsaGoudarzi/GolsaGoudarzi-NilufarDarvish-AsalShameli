@@ -164,7 +164,7 @@
             gap: 20px;
         }
 
-        /* باکس اطلاعاتی Part II - اکنون به صورت افقی و خوانا در ستون چپ قرار دارد */
+        /* باکس اطلاعاتی Part II */
         .infobox {
             width: 100%;
             background: #f8fafc;
@@ -329,9 +329,10 @@
             text-align: left;
         }
 
-        /* باکس گالری تصاویر اقلیدسی - اکنون به صورت عمودی و متناسب در سایدبار جای دارد */
+        /* اصلاح و بزرگتر شدن باکس تصاویر اقلیدسی (تک ستونه عمودی عریض همراه با اسکرول داخلی) */
         .euclidean-foundations-box {
             width: 100%;
+            max-height: 520px; /* اعمال محدودیت ارتفاع جهت متقارن ماندن و ایجاد اسکرول */
             background: #f8fafc;
             border: 1px solid rgba(0,0,0,0.1);
             border-radius: 14px;
@@ -340,6 +341,15 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            overflow-y: auto; /* فعالسازی اسکرول عمودی هوشمند */
+        }
+        /* شخصی‌سازی نوار اسکرول باکس تصاویر اقلیدسی */
+        .euclidean-foundations-box::-webkit-scrollbar {
+            width: 6px;
+        }
+        .euclidean-foundations-box::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
         }
         .euclidean-foundations-box h3 {
             width: 100%;
@@ -350,24 +360,29 @@
             border-left: 4px solid #ef4444;
             padding-left: 10px;
             text-align: left;
+            position: sticky; /* چسبیدن عنوان در هنگام اسکرول به پایین */
+            top: 0;
+            background: #f8fafc;
+            z-index: 2;
+            padding-bottom: 5px;
         }
         .foundations-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* چیدمان ۲ ستونه عالی برای جلوگیری از کشیدگی */
-            gap: 12px;
+            grid-template-columns: 1fr; /* تبدیل به حالت تک ستونه عریض جهت ماکسیمم شدن ابعاد تصاویر */
+            gap: 16px;
             width: 100%;
         }
         .foundations-grid img {
             width: 100%;
-            aspect-ratio: 1 / 1;
-            object-fit: contain; /* تضمین عدم فرسایش و تغییر ابعاد عکس‌ها */
+            aspect-ratio: 1.2 / 1; /* اصلاح جزئی نسبت ابعاد برای عریض‌تر دیده شدن فرم عکس‌ها */
+            object-fit: contain;
             background-color: #ffffff;
             border-radius: 8px;
             border: 1px solid rgba(0,0,0,0.08);
             transition: transform 0.3s ease;
         }
         .foundations-grid img:hover {
-            transform: scale(1.04);
+            transform: scale(1.02);
         }
 
         /* باکس اطلاعاتی Part IV */
@@ -490,6 +505,7 @@
             .left-visual-column { flex: 0 0 100%; }
             .sidebar-text-zone { flex: 0 0 100%; }
             .newtonian-grid-layout { grid-template-columns: 1fr; }
+            .euclidean-foundations-box { max-height: none; overflow-y: visible; }
             .foundations-grid { grid-template-columns: repeat(2, 1fr); }
             .main-content-zone { height: 50vh; }
         }
